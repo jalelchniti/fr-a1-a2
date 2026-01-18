@@ -123,6 +123,10 @@ src/
   - Implemented same progression system with A1-1 as default starting level
   - Added comprehensive listening comprehension questions for each level
   - Maintained audio playback functionality within leveled structure
+- Fixed A1-1 activation issue:
+  - Corrected logic to ensure A1-1 is always available as starting point in all sections
+  - A1-1 is now properly unlocked for all users regardless of other progress
+  - Maintained progression chain for higher levels (A1-2, A1-3, A1-4)
 - All evaluation modules (Reading, Listening, Language) now compile without errors
 - Build process completes successfully
 
