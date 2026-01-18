@@ -211,9 +211,8 @@ export default function Listening() {
         localStorageState[level] = localStorage.getItem(`${level}_unlocked`) === 'true';
     });
 
-    // A1-1 is unlocked if it was previously unlocked OR if no progress exists (first-time user)
-    const hasAnyProgress = Object.values(localStorageState).some(value => value === true);
-    initialUnlockedLevels['A1-1'] = localStorageState['A1-1'] || !hasAnyProgress;
+    // A1-1 is always available as the starting point for all users
+    initialUnlockedLevels['A1-1'] = true;
 
     // For other levels, they can only be unlocked if:
     // 1. They were previously marked as unlocked in localStorage, AND
