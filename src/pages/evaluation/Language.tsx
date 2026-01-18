@@ -31,23 +31,37 @@ interface LanguageTestProps {
 
 const LanguageTest = ({ questions, onTestComplete, levelTitle, isFinalLevel, onNextTest, onGoToSelection }: LanguageTestProps) => {
   const [userAnswers, setUserAnswers] = useState<(number | null)[]>(() => Array(questions.length).fill(null));
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [showResults, setShowResults] = useState(false);
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     // Wrap state updates in setTimeout to avoid 'set-state-in-effect' lint warning
     // This effectively breaks the synchronous call chain that ESLint warns about.
     const timer = setTimeout(() => {
       setUserAnswers(Array(questions.length).fill(null));
+      setCurrentQuestionIndex(0);
       setShowResults(false);
     }, 0);
     return () => clearTimeout(timer);
   }, [questions]);
 
-  const handleAnswerSelect = (optionIndex: number, questionIndex: number) => {
+  const handleAnswerSelect = (optionIndex: number) => {
     const newAnswers = [...userAnswers];
-    newAnswers[questionIndex] = optionIndex;
+    newAnswers[currentQuestionIndex] = optionIndex;
     setUserAnswers(newAnswers);
+  };
+
+  const goToNextQuestion = () => {
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    }
+  };
+
+  const goToPreviousQuestion = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex(currentQuestionIndex - 1);
+    }
   };
 
   const handleFinishTest = () => {
@@ -93,16 +107,52 @@ const LanguageTest = ({ questions, onTestComplete, levelTitle, isFinalLevel, onN
     );
   }
 
+  const currentQuestion = questions[currentQuestionIndex];
+  const selectedAnswer = userAnswers[currentQuestionIndex];
+
   return (
-    <div className="skill-main">
-      {questions.map((currentQuestion, index) => (
-        <div className="test-interactive" key={currentQuestion.id}>
-            <div className="question-header"><HelpCircle size={24} className="text-accent" /><h2>Question {index + 1} / {questions.length}</h2></div>
-            <div className="question-prompt"><p className="fill-in-the-blank-question">{currentQuestion.question.split('______')[0]}<span className="blank">...</span>{currentQuestion.question.split('______')[1]}</p></div>
-            <div className="question-options">{currentQuestion.options.map((option, optionIndex) => (<button key={optionIndex} className={`option-btn ${userAnswers[index] === optionIndex ? 'selected' : ''}`} onClick={() => handleAnswerSelect(optionIndex, index)}><span className="option-icon">{userAnswers[index] === optionIndex ? <CheckCircle2 /> : <HelpCircle />}</span>{option}</button>))}</div>
-        </div>
-      ))}
-      <div className="test-navigation submit-container"><button onClick={handleFinishTest} className="btn btn-success btn-large" disabled={userAnswers.includes(null)}><Check size={20} /> Terminer et voir les résultats</button></div>
+    <div className="test-interactive">
+      <div className="question-header"><HelpCircle size={24} className="text-accent" /><h2>Question {currentQuestionIndex + 1} / {questions.length}</h2></div>
+      <div className="question-prompt"><p className="fill-in-the-blank-question">{currentQuestion.question.split('______')[0]}<span className="blank">...</span>{currentQuestion.question.split('______')[1]}</p></div>
+      <div className="question-options">
+        {currentQuestion.options.map((option, optionIndex) => (
+          <button
+            key={optionIndex}
+            className={`option-btn ${selectedAnswer === optionIndex ? 'selected' : ''}`}
+            onClick={() => handleAnswerSelect(optionIndex)}
+          >
+            <span className="option-icon">
+              {selectedAnswer === optionIndex ? <CheckCircle2 /> : <HelpCircle />}
+            </span>
+            {option}
+          </button>
+        ))}
+      </div>
+      <div className="test-navigation">
+        <button
+          onClick={goToPreviousQuestion}
+          disabled={currentQuestionIndex === 0}
+          className="btn btn-secondary"
+        >
+          <ArrowLeft size={18} /> Précédent
+        </button>
+        {currentQuestionIndex < questions.length - 1 ? (
+          <button
+            onClick={goToNextQuestion}
+            className="btn btn-primary"
+          >
+            Suivant <ArrowRight size={18} />
+          </button>
+        ) : (
+          <button
+            onClick={handleFinishTest}
+            className="btn btn-success"
+            disabled={userAnswers[currentQuestionIndex] === null}
+          >
+            <Check size={20} /> Terminer le test
+          </button>
+        )}
+      </div>
     </div>
   );
 };
@@ -143,12 +193,26 @@ export default function Language() {
 
       return (
           <div className="skill-page">
-              <section className="skill-header-section skill-header-accent"><div className="page-container"><div onClick={() => setActiveTest(null)} className="back-link" style={{cursor: 'pointer'}}><ArrowLeft size={20} />Retour à la sélection</div></div></section>
+              <section className="skill-header-section skill-header-accent">
+                <div className="page-container">
+                  <div onClick={() => setActiveTest(null)} className="back-link" style={{cursor: 'pointer'}}><ArrowLeft size={20} />Retour à la sélection</div>
+                  <div className="skill-header-content">
+                    <div className="skill-icon-large icon-accent">
+                      <Languages size={32} />
+                    </div>
+                    <div>
+                      <span className="skill-label">Niveau {activeTest}</span>
+                      <h1>Grammaire & Vocabulaire</h1>
+                      <p>Testez votre maîtrise des structures linguistiques</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
               <section className="skill-content section">
                   <div className="page-container" style={{maxWidth: '800px', margin: '0 auto'}}>
-                      <LanguageTest 
-                        questions={questionSets[activeTest]} 
-                        onTestComplete={handleTestComplete} 
+                      <LanguageTest
+                        questions={questionSets[activeTest]}
+                        onTestComplete={handleTestComplete}
                         levelTitle={activeTest}
                         isFinalLevel={isFinalLevel}
                         onNextTest={handleNextTest}
