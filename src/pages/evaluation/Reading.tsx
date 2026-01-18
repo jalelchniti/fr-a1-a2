@@ -168,23 +168,34 @@ export default function Reading() {
     // Start with default state: only A1-1 unlocked
     const initialUnlockedLevels: Record<Level, boolean> = {'A1-1': true, 'A1-2': false, 'A1-3': false, 'A1-4': false};
 
-    // Validate progression chain: each level can only be unlocked if the previous one was completed
-    // First, check what's in localStorage for each level
-    const localStorageState: Record<Level, boolean> = {} as Record<Level, boolean>;
-    levels.forEach(level => {
-        localStorageState[level] = localStorage.getItem(`${level}_unlocked`) === 'true';
-    });
-
-    // A1-1 is always available as the starting point for all users
+    // Initialize with only A1-1 unlocked by default
     initialUnlockedLevels['A1-1'] = true;
-
-    // For other levels, they can only be unlocked if:
-    // 1. They were previously marked as unlocked in localStorage, AND
-    // 2. The previous level is also unlocked (maintains progression chain)
     for (let i = 1; i < levels.length; i++) {
+      initialUnlockedLevels[levels[i]] = false;
+    }
+
+    // Then check localStorage to restore user's progress if they've completed levels before
+    // But maintain progression: each level can only unlock if the previous one is unlocked
+    for (let i = 0; i < levels.length; i++) {
       const currentLevel = levels[i];
-      const previousLevel = levels[i - 1];
-      initialUnlockedLevels[currentLevel] = localStorageState[currentLevel] && initialUnlockedLevels[previousLevel];
+      const wasCompletedBefore = localStorage.getItem(`${currentLevel}_unlocked`) === 'true';
+
+      if (i === 0) {
+        // A1-1: if it was completed before, keep it unlocked
+        if (wasCompletedBefore) {
+          initialUnlockedLevels[currentLevel] = true;
+        }
+      } else {
+        // Other levels: only unlock if previous level is unlocked AND this level was completed before
+        const previousLevel = levels[i - 1];
+        if (initialUnlockedLevels[previousLevel] && wasCompletedBefore) {
+          initialUnlockedLevels[currentLevel] = true;
+        } else {
+          // If this level was marked as completed but previous isn't unlocked,
+          // reset this level to locked to maintain progression
+          initialUnlockedLevels[currentLevel] = false;
+        }
+      }
     }
 
     return initialUnlockedLevels;
