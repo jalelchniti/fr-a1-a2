@@ -97,6 +97,9 @@ src/
   - Added proper null checks in reduce functions for score calculations
   - Added explicit type annotations to prevent type inference issues
   - Fixed comparisons in results sections to handle nullable values correctly
+- Fixed production deployment issue:
+  - Configured proper base path in `vite.config.ts` to serve assets from `/fr-a1-a2/` subdirectory
+  - Assets now load correctly from the expected paths in production
 - All evaluation modules (Reading, Listening, Language) now compile without errors
 - Build process completes successfully
 
