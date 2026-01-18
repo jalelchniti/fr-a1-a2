@@ -107,6 +107,12 @@ src/
   - Updated to show one question at a time with navigation controls
   - Added Previous/Next buttons for easy navigation between questions
   - Maintained all existing functionality while improving user experience
+- Applied leveled test system to Reading Comprehension section:
+  - Implemented 4 progressive levels (A1-1, A1-2, A1-3, A1-4) similar to Language section
+  - Added progression conditions (need 7/10 to unlock next level)
+  - Included PDF results printing functionality
+  - Added lock/unlock mechanism with local storage persistence
+  - Created comprehensive reading questions for each level
 - All evaluation modules (Reading, Listening, Language) now compile without errors
 - Build process completes successfully
 
