@@ -24,13 +24,12 @@ interface LanguageTestProps {
   questions: Question[];
   onTestComplete: (score: number, answers: (number|null)[]) => void;
   levelTitle: Level;
-  isNextLevelUnlocked: boolean;
   isFinalLevel: boolean;
   onNextTest: () => void;
   onGoToSelection: () => void;
 }
 
-const LanguageTest = ({ questions, onTestComplete, levelTitle, isNextLevelUnlocked, isFinalLevel, onNextTest, onGoToSelection }: LanguageTestProps) => {
+const LanguageTest = ({ questions, onTestComplete, levelTitle, isFinalLevel, onNextTest, onGoToSelection }: LanguageTestProps) => {
   const [userAnswers, setUserAnswers] = useState<(number | null)[]>(() => Array(questions.length).fill(null));
   const [showResults, setShowResults] = useState(false);
   const navigate = useNavigate();
@@ -52,13 +51,13 @@ const LanguageTest = ({ questions, onTestComplete, levelTitle, isNextLevelUnlock
   };
 
   const handleFinishTest = () => {
-    const score = userAnswers.reduce((score, answer, index) => (answer === questions[index].correctAnswer ? score + 1 : score), 0);
+    const score = userAnswers.reduce((acc: number, answer, index) => (answer === questions[index].correctAnswer ? acc + 1 : acc), 0);
     onTestComplete(score, userAnswers);
     setShowResults(true);
   }
 
   if (showResults) {
-    const score = userAnswers.reduce((score, answer, index) => (answer === questions[index].correctAnswer ? score + 1 : score), 0);
+    const score = userAnswers.reduce((acc: number, answer, index) => (answer === questions[index].correctAnswer ? acc + 1 : acc), 0);
     const percentage = Math.round((score / questions.length) * 100);
     const levelNum = parseInt(levelTitle.slice(-1));
     const nextLevel = `A1-${levelNum + 1}`;
@@ -140,9 +139,6 @@ export default function Language() {
   }
 
   if (activeTest) {
-      const currentLevelIndex = levels.indexOf(activeTest);
-      const nextLevel = levels[currentLevelIndex + 1];
-      const isNextUnlocked = nextLevel ? unlockedLevels[nextLevel] : false;
       const isFinalLevel = activeTest === levels[levels.length - 1];
 
       return (
@@ -154,7 +150,6 @@ export default function Language() {
                         questions={questionSets[activeTest]} 
                         onTestComplete={handleTestComplete} 
                         levelTitle={activeTest}
-                        isNextLevelUnlocked={isNextUnlocked}
                         isFinalLevel={isFinalLevel}
                         onNextTest={handleNextTest}
                         onGoToSelection={() => setActiveTest(null)}

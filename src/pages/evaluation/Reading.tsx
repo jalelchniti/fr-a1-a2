@@ -87,9 +87,9 @@ const ReadingTest = () => {
     }
   };
 
-  const calculateScore = () => {
-    return userAnswers.reduce((score, answer, index) => {
-      return answer === readingQuestions[index].correctAnswer ? score + 1 : score;
+  const calculateScore = (): number => {
+    return userAnswers.reduce((acc: number, answer, index) => {
+      return answer !== null && answer === readingQuestions[index].correctAnswer ? acc + 1 : acc;
     }, 0);
   };
 
@@ -111,7 +111,7 @@ const ReadingTest = () => {
         <div className="results-details">
           {readingQuestions.map((q, index) => {
             const userAnswer = userAnswers[index];
-            const isCorrect = userAnswer === q.correctAnswer;
+            const isCorrect = userAnswer !== null && userAnswer === q.correctAnswer;
             return (
               <div key={q.id} className="result-item">
                 <div className="result-question">

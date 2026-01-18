@@ -17,7 +17,7 @@ export default function LanguageSummary() {
             if (savedAnswers) {
                 const answers = JSON.parse(savedAnswers) as (number | null)[];
                 const questions = questionSets[level];
-                const score = answers.reduce((acc, answer, index) => (answer === questions[index].correctAnswer ? acc + 1 : acc), 0);
+                const score = answers.reduce((acc: number, answer, index) => (answer === questions[index].correctAnswer ? acc + 1 : acc), 0);
                 loadedResults.push({ level, answers, score });
             }
         });
