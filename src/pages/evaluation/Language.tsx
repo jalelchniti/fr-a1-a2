@@ -161,12 +161,28 @@ const LanguageTest = ({ questions, onTestComplete, levelTitle, isFinalLevel, onN
 export default function Language() {
   const [activeTest, setActiveTest] = useState<Level | null>(null);
   const [unlockedLevels, setUnlockedLevels] = useState<Record<Level, boolean>>(() => {
+    // Start with default state: only A1-1 unlocked
     const initialUnlockedLevels: Record<Level, boolean> = {'A1-1': true, 'A1-2': false, 'A1-3': false, 'A1-4': false};
-    levels.forEach(level => {
-        if (localStorage.getItem(`${level}_unlocked`) === 'true') {
-            initialUnlockedLevels[level] = true;
-        }
-    });
+
+    // Validate progression chain: each level can only be unlocked if the previous one was completed
+    for (let i = 0; i < levels.length; i++) {
+      const currentLevel = levels[i];
+      if (i === 0) {
+        // A1-1 is always unlocked initially
+        initialUnlockedLevels[currentLevel] = localStorage.getItem(`${currentLevel}_unlocked`) === 'true' || true;
+      } else {
+        // For other levels, check if previous level was unlocked
+        const previousLevel = levels[i - 1];
+        const isPreviousLevelUnlocked = localStorage.getItem(`${previousLevel}_unlocked`) === 'true';
+
+        // This level is unlocked if both:
+        // 1. It was previously marked as unlocked in localStorage, AND
+        // 2. The previous level is also unlocked (maintains progression chain)
+        const wasThisLevelUnlocked = localStorage.getItem(`${currentLevel}_unlocked`) === 'true';
+        initialUnlockedLevels[currentLevel] = wasThisLevelUnlocked && isPreviousLevelUnlocked;
+      }
+    }
+
     return initialUnlockedLevels;
   });
 
