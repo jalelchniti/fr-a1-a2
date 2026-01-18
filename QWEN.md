@@ -100,6 +100,9 @@ src/
 - Fixed production deployment issue:
   - Configured proper base path in `vite.config.ts` to serve assets from `/fr-a1-a2/` subdirectory
   - Assets now load correctly from the expected paths in production
+- Fixed routing issue for subdirectory deployment:
+  - Added basename configuration to React Router in `main.tsx` to handle routes from `/fr-a1-a2/` subdirectory
+  - Routes now resolve correctly in production environment
 - All evaluation modules (Reading, Listening, Language) now compile without errors
 - Build process completes successfully
 
