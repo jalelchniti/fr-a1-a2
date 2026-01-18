@@ -129,6 +129,11 @@ src/
   - Maintained proper progression chain across all sections
 - All evaluation modules (Reading, Listening, Language) now compile without errors
 - Build process completes successfully
+- Development Process Note:
+  - Implemented validation protocol: Always validate fixes before building or pushing to Git
+  - Added documentation requirement: Update documentation before building/pushing
+  - Critical workflow rule: Never push to Git until user confirms all changes are OK
+  - Always wait for explicit user confirmation before pushing changes to save time and avoid unnecessary commits
 
 ## Styling Approach
 - CSS modules for scoped styling
