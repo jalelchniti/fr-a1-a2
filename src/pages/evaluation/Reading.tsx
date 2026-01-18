@@ -169,22 +169,23 @@ export default function Reading() {
     const initialUnlockedLevels: Record<Level, boolean> = {'A1-1': true, 'A1-2': false, 'A1-3': false, 'A1-4': false};
 
     // Validate progression chain: each level can only be unlocked if the previous one was completed
-    for (let i = 0; i < levels.length; i++) {
-      const currentLevel = levels[i];
-      if (i === 0) {
-        // A1-1 is always unlocked initially
-        initialUnlockedLevels[currentLevel] = localStorage.getItem(`${currentLevel}_unlocked`) === 'true' || true;
-      } else {
-        // For other levels, check if previous level was unlocked
-        const previousLevel = levels[i - 1];
-        const isPreviousLevelUnlocked = localStorage.getItem(`${previousLevel}_unlocked`) === 'true';
+    // First, check what's in localStorage for each level
+    const localStorageState: Record<Level, boolean> = {} as Record<Level, boolean>;
+    levels.forEach(level => {
+        localStorageState[level] = localStorage.getItem(`${level}_unlocked`) === 'true';
+    });
 
-        // This level is unlocked if both:
-        // 1. It was previously marked as unlocked in localStorage, AND
-        // 2. The previous level is also unlocked (maintains progression chain)
-        const wasThisLevelUnlocked = localStorage.getItem(`${currentLevel}_unlocked`) === 'true';
-        initialUnlockedLevels[currentLevel] = wasThisLevelUnlocked && isPreviousLevelUnlocked;
-      }
+    // A1-1 is unlocked if it was previously unlocked OR if no progress exists (first-time user)
+    const hasAnyProgress = Object.values(localStorageState).some(value => value === true);
+    initialUnlockedLevels['A1-1'] = localStorageState['A1-1'] || !hasAnyProgress;
+
+    // For other levels, they can only be unlocked if:
+    // 1. They were previously marked as unlocked in localStorage, AND
+    // 2. The previous level is also unlocked (maintains progression chain)
+    for (let i = 1; i < levels.length; i++) {
+      const currentLevel = levels[i];
+      const previousLevel = levels[i - 1];
+      initialUnlockedLevels[currentLevel] = localStorageState[currentLevel] && initialUnlockedLevels[previousLevel];
     }
 
     return initialUnlockedLevels;
