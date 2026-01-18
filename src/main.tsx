@@ -53,7 +53,9 @@ const router = createBrowserRouter([
       },
     ],
   },
-]);
+], {
+  basename: '/fr-a1-a2/'
+});
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
