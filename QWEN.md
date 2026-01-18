@@ -117,6 +117,7 @@ src/
   - Ensured levels unlock only after prerequisite levels are completed
   - Implemented proper validation chain to prevent skipping levels
   - Corrected issue where higher levels could appear unlocked without completing prerequisites
+  - Applied same fix to both Reading and Language evaluation sections
 - All evaluation modules (Reading, Listening, Language) now compile without errors
 - Build process completes successfully
 
