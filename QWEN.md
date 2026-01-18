@@ -103,6 +103,10 @@ src/
 - Fixed routing issue for subdirectory deployment:
   - Added basename configuration to React Router in `main.tsx` to handle routes from `/fr-a1-a2/` subdirectory
   - Routes now resolve correctly in production environment
+- Improved Language evaluation interface:
+  - Updated to show one question at a time with navigation controls
+  - Added Previous/Next buttons for easy navigation between questions
+  - Maintained all existing functionality while improving user experience
 - All evaluation modules (Reading, Listening, Language) now compile without errors
 - Build process completes successfully
 
