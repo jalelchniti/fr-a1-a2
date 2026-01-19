@@ -318,6 +318,20 @@
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+  .hero {
+    padding: 3rem 1.5rem;
+  }
+
+  .hero-title {
+    font-size: 2.75rem;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
 @media (max-width: 768px) {
   .hero {
     min-height: auto;
@@ -339,6 +353,12 @@
   .section-card {
     flex-direction: column;
     text-align: center;
+    padding: 1.5rem;
+  }
+
+  .section-card-icon {
+    width: 56px;
+    height: 56px;
   }
 
   .section-card-arrow {
@@ -347,5 +367,64 @@
 
   .section-card:hover .section-card-arrow {
     transform: rotate(90deg) translateX(4px);
+  }
+
+  .deco-circle {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 2rem 0.75rem;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+  }
+
+  .hero-actions {
+    gap: 0.75rem;
+  }
+
+  .feature-card {
+    padding: 1.5rem;
+  }
+
+  .feature-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .section-card {
+    padding: 1.25rem;
+  }
+
+  .section-card-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .section-card-content p {
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    padding: 3rem 1rem;
+  }
+
+  .cta-content h2 {
+    font-size: 1.75rem;
+  }
+}
+
+/* Touch targets for mobile */
+@media (hover: none) and (pointer: coarse) {
+  .btn,
+  .section-card {
+    min-height: 44px;
   }
 }

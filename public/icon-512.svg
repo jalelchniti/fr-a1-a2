@@ -1,0 +1,8 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#f8fafc"/>
+  <rect x="50" y="100" width="412" height="312" rx="20" fill="#2563eb"/>
+  <circle cx="256" cy="256" r="100" fill="#ffffff"/>
+  <text x="256" y="260" font-family="Arial, sans-serif" font-size="100" fill="#2563eb" text-anchor="middle">A1</text>
+  <text x="256" y="370" font-family="Arial, sans-serif" font-size="60" fill="#ffffff" text-anchor="middle">A2</text>
+</svg>
