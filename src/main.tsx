@@ -37,26 +37,20 @@ const router = createBrowserRouter([
         element: <A2Home />,
       },
       {
-        path: 'evaluation',
-        element: <EvaluationHome />,
-        children: [
-          {
-            path: 'reading',
-            element: <Reading />,
-          },
-          {
-            path: 'listening',
-            element: <Listening />,
-          },
-          {
-            path: 'language',
-            element: <Language />,
-          },
-          {
-            path: 'language/summary',
-            element: <LanguageSummary />,
-          },
-        ],
+        path: 'reading',
+        element: <Reading />,
+      },
+      {
+        path: 'listening',
+        element: <Listening />,
+      },
+      {
+        path: 'language',
+        element: <Language />,
+      },
+      {
+        path: 'language/summary',
+        element: <LanguageSummary />,
       },
     ],
   },
