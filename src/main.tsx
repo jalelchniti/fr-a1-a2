@@ -12,11 +12,13 @@ import Language from './pages/evaluation/Language';
 import LanguageSummary from './pages/evaluation/LanguageSummary';
 import LanguageChapter from './pages/a1/language/LanguageChapter';
 import A2Home from './pages/a2/A2Home';
+import ErrorBoundary from './components/ErrorBoundary';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
+    errorElement: <ErrorBoundary />,
     children: [
       {
         index: true,
