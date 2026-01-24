@@ -35,10 +35,22 @@ export default function Navigation() {
   const location = useLocation();
 
   const isActive = (path: string) => {
-    if (path === '/') {
-      return location.pathname === '/';
+    // Normalize paths to remove any trailing slashes
+    const normalizedPath = path.endsWith('/') && path.length > 1 ? path.slice(0, -1) : path;
+    const normalizedLocation = location.pathname.endsWith('/') && location.pathname.length > 1 ? location.pathname.slice(0, -1) : location.pathname;
+
+    // Check for exact match
+    if (normalizedPath === normalizedLocation) {
+      return true;
     }
-    return location.pathname.startsWith(path);
+
+    // For parent paths, check if the current location starts with the parent path
+    // and is followed by a slash for nested routes.
+    if (location.pathname.startsWith(normalizedPath + '/')) {
+      return true;
+    }
+    
+    return false;
   };
 
   const toggleDropdown = (path: string) => {
