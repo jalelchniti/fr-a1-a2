@@ -17,14 +17,14 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   {
-    path: '/evaluation',
+    path: '/',
     label: 'Évaluation',
     icon: <ClipboardCheck size={20} />,
     children: [
-      { path: '/evaluation', label: 'Vue d\'ensemble' },
-      { path: '/evaluation/reading', label: 'Compréhension écrite' },
-      { path: '/evaluation/listening', label: 'Compréhension orale' },
-      { path: '/evaluation/language', label: 'Grammaire & Vocabulaire' },
+      { path: '/', label: 'Vue d\'ensemble' },
+      { path: '/reading', label: 'Compréhension écrite' },
+      { path: '/listening', label: 'Compréhension orale' },
+      { path: '/language', label: 'Grammaire & Vocabulaire' },
     ]
   },
 ];
