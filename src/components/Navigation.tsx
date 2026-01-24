@@ -1,12 +1,9 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
-  BookOpen,
   ClipboardCheck,
-  GraduationCap,
   Menu,
   X,
-  Home,
   ChevronDown
 } from 'lucide-react';
 import './Navigation.css';
@@ -20,13 +17,8 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   {
-    path: '/',
-    label: 'Accueil',
-    icon: <Home size={20} />
-  },
-  {
     path: '/evaluation',
-    label: 'Evaluation',
+    label: 'Évaluation',
     icon: <ClipboardCheck size={20} />,
     children: [
       { path: '/evaluation', label: 'Vue d\'ensemble' },
@@ -34,16 +26,6 @@ const navItems: NavItem[] = [
       { path: '/evaluation/listening', label: 'Compréhension orale' },
       { path: '/evaluation/language', label: 'Grammaire & Vocabulaire' },
     ]
-  },
-  {
-    path: '/a1',
-    label: 'Niveau A1',
-    icon: <BookOpen size={20} />
-  },
-  {
-    path: '/a2',
-    label: 'Niveau A2',
-    icon: <GraduationCap size={20} />
   },
 ];
 
