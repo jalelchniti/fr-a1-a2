@@ -1,6 +1,6 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 
 import Layout from './components/Layout';
@@ -14,7 +14,7 @@ import LanguageChapter from './pages/a1/language/LanguageChapter';
 import A2Home from './pages/a2/A2Home';
 import ErrorBoundary from './components/ErrorBoundary';
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <Layout />,
@@ -54,9 +54,7 @@ const router = createBrowserRouter([
       },
     ],
   },
-], {
-  basename: '/fr-a1-a2/'
-});
+]);
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
