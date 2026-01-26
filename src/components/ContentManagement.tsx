@@ -404,7 +404,6 @@ const ContentManagement: React.FC<ContentManagementProps> = ({
                   </button>
                   <button className="btn btn-primary">
                     <ExternalLink size={16} />
-                    Accéder
                   </button>
                 </div>
               </div>
