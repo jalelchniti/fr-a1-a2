@@ -83,12 +83,11 @@ export default function Listening() {
                   <div className="card-header"><Volume2 size={24} className="text-secondary" /><h2>Choisissez un niveau de test</h2></div>
                   <p>Commencez par le test A1-1. Obtenez un score de 7/10 ou plus pour débloquer le niveau suivant.</p>
                   <div className="level-selection-container">
-                      {levels.map((level, index) => {
+                      {levels.map((level) => {
                           const isUnlocked = localStorage.getItem(`${level}_unlocked`) === 'true' || level === 'A1-1';
-                          const prevLevel = index > 0 ? levels[index-1] : null;
                           return (
                             <div key={level} className={`level-card ${!isUnlocked ? 'locked' : ''}`} onClick={isUnlocked ? () => setActiveTest(level) : undefined}>
-                                {!isUnlocked && <div className="lock-overlay"><Lock size={24} /><span>Score de 7/10 en {prevLevel} requis</span></div>}
+                                {!isUnlocked && <div className="lock-overlay"><Lock size={24} /></div>}
                                 <div className="level-card-title">Niveau {level}</div>
                                 <button className="btn btn-primary" disabled={!isUnlocked}>Commencer</button>
                             </div>

@@ -114,7 +114,7 @@ Uses `vite-plugin-pwa` with:
 ### Testing
 
 Vitest with React Testing Library:
-- Test files: `*.test.tsx`
+- Test files: `*.test.tsx` (none currently exist - framework ready for future tests)
 - Setup: `src/setupTests.ts` (imports `@testing-library/jest-dom`)
 - Config: `vitest.config.ts` with jsdom environment and globals enabled
 - Wrap router-dependent components in `HashRouter` for tests

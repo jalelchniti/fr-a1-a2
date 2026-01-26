@@ -33,7 +33,7 @@ export default function LanguageSummary() {
             <div className="page-container">
                 <header className="summary-header">
                     <div>
-                        <Link to="/evaluation/language" className="back-link no-print">
+                        <Link to="/language" className="back-link no-print">
                             <ArrowLeft size={20} />
                             Retour à la sélection des tests
                         </Link>

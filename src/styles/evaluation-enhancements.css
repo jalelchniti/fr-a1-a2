@@ -1,18 +1,17 @@
 /* =============================================
    Enhanced Evaluation Components Styles
-   Professional UI Upgrade with Glassmorphism
+   Clean Slim-inspired Design
    ============================================= */
 
 .evaluationContainer {
   max-width: var(--container-lg);
   margin: 0 auto;
-  padding: var(--spacing-4xl) var(--spacing-4xl);
+  padding: var(--spacing-4xl);
 }
 
 .evaluationHeader {
   text-align: center;
   margin-bottom: var(--spacing-4xl);
-  position: relative;
 }
 
 .evaluationTitle {
@@ -28,70 +27,34 @@
   margin: 0 auto;
 }
 
-/* Enhanced Question Counter with Shimmer */
+/* Question Counter */
 .questionCounter {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-sm);
   padding: var(--spacing-md) var(--spacing-2xl);
-  background: var(--glass-bg-strong);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-  border: 1px solid var(--glass-border);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
   border-radius: var(--radius-full);
   font-weight: var(--weight-semibold);
   color: var(--color-text-primary);
   margin-bottom: var(--spacing-2xl);
-  box-shadow: var(--shadow-md);
-  position: relative;
-  overflow: hidden;
+  box-shadow: var(--shadow-soft);
 }
 
-/* Shimmer effect on counter */
-.questionCounter::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.4) 50%,
-    transparent 100%
-  );
-  animation: shimmer 3s ease-in-out infinite;
-}
-
-/* Enhanced Question Card with Glassmorphism */
+/* Question Card */
 .questionCard {
-  background: var(--glass-bg-strong);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
+  background: var(--color-bg-surface);
   border-radius: var(--radius-2xl);
   padding: var(--spacing-4xl);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-soft);
   margin-bottom: var(--spacing-3xl);
-  border: 1px solid var(--glass-border);
-  position: relative;
-  overflow: hidden;
+  border: 1px solid var(--color-border-muted);
   transition: all var(--transition-normal);
 }
 
-/* Gradient top border */
-.questionCard::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: var(--gradient-primary);
-}
-
 .questionCard:hover {
-  box-shadow: var(--shadow-xl), var(--shadow-glow-primary);
+  box-shadow: var(--shadow-medium);
 }
 
 .questionNumber {
@@ -105,29 +68,17 @@
   align-items: center;
   gap: var(--spacing-sm);
   padding: var(--spacing-xs) var(--spacing-md);
-  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  background: var(--color-primary-50);
   border-radius: var(--radius-md);
 }
 
 /* Audio Section for Listening Exercises */
 .audio-section {
-  background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
-  border: 2px solid #0ea5e9;
+  background: linear-gradient(135deg, var(--color-primary-50) 0%, var(--color-primary-100) 100%);
+  border: 2px solid var(--color-primary-300);
   border-radius: var(--radius-xl);
   padding: var(--spacing-xl);
   margin-bottom: var(--spacing-2xl);
-  position: relative;
-}
-
-.audio-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #0ea5e9, #06b6d4, #0ea5e9);
-  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
 }
 
 .audio-prompt {
@@ -135,14 +86,13 @@
   align-items: center;
   gap: var(--spacing-md);
   font-weight: var(--weight-semibold);
-  color: #0369a1;
+  color: var(--color-primary-700);
   margin-bottom: var(--spacing-lg);
   font-size: var(--text-lg);
 }
 
 .audio-icon {
   font-size: var(--text-2xl);
-  animation: pulse-soft 2s ease-in-out infinite;
 }
 
 .audio-controls {
@@ -153,19 +103,19 @@
 }
 
 .audio-section .transcript-toggle {
-  background: #0ea5e9;
+  background: var(--color-primary);
   padding: var(--spacing-sm) var(--spacing-lg);
   font-size: var(--text-sm);
 }
 
 .audio-section .transcript-toggle:hover {
-  background: #0284c7;
+  background: var(--color-primary-dark);
 }
 
 .audio-section .transcript-container {
   margin-top: var(--spacing-lg);
   background: white;
-  border-left-color: #0ea5e9;
+  border-left-color: var(--color-primary);
   font-size: var(--text-base);
   line-height: 1.7;
 }
@@ -233,14 +183,14 @@
   color: var(--color-text-secondary);
   margin-bottom: var(--spacing-xl);
   padding: var(--spacing-lg);
-  background: color-mix(in srgb, var(--color-primary) 5%, transparent);
+  background: var(--color-primary-50);
   border-radius: var(--radius-lg);
   border-left: 4px solid var(--color-primary);
   transition: all var(--transition-normal);
 }
 
 .questionInstruction:hover {
-  background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+  background: var(--color-primary-100);
   transform: translateX(4px);
 }
 
@@ -250,54 +200,29 @@
   gap: var(--spacing-md);
 }
 
-/* Enhanced Option Items with Selection Glow */
+/* Option Items */
 .optionItem {
   display: flex;
   align-items: flex-start;
   padding: var(--spacing-xl);
-  background: var(--glass-bg);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid var(--glass-border);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
   border-radius: var(--radius-lg);
   cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Left indicator border */
-.optionItem::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: var(--gradient-primary);
-  transform: scaleY(0);
-  transition: transform 0.25s ease;
+  transition: all var(--transition-normal);
 }
 
 .optionItem:hover {
-  background: color-mix(in srgb, var(--color-primary) 5%, white);
-  border-color: var(--color-primary-light);
+  background: var(--color-primary-50);
+  border-color: var(--color-primary-300);
   transform: translateY(-2px) translateX(4px);
-  box-shadow: var(--shadow-md);
-}
-
-.optionItem:hover::before {
-  transform: scaleY(1);
+  box-shadow: var(--shadow-soft);
 }
 
 .optionItem.selected {
-  background: color-mix(in srgb, var(--color-primary) 10%, white);
+  background: var(--color-primary-100);
   border-color: var(--color-primary);
-  box-shadow: var(--shadow-md), 0 0 0 3px color-mix(in srgb, var(--color-primary) 20%, transparent), var(--shadow-glow-primary);
-}
-
-.optionItem.selected::before {
-  transform: scaleY(1);
+  box-shadow: var(--shadow-soft);
 }
 
 .optionInput {
@@ -324,13 +249,13 @@
   margin: 0 var(--spacing-xs);
   text-align: center;
   transition: all var(--transition-normal);
-  background: var(--glass-bg);
+  background: var(--color-bg-surface);
 }
 
 .fillBlankInput:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 20%, transparent), var(--shadow-glow-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-100);
   background: white;
 }
 
@@ -342,14 +267,14 @@
   font-size: var(--text-base);
   font-family: var(--font-body);
   resize: vertical;
-  background: var(--glass-bg);
+  background: var(--color-bg-surface);
   transition: all var(--transition-normal);
 }
 
 .textInput:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 20%, transparent);
+  box-shadow: 0 0 0 3px var(--color-primary-100);
   background: white;
 }
 
@@ -360,33 +285,30 @@
   padding: var(--spacing-2xl);
   margin: var(--spacing-xl) 0;
   transition: all var(--transition-normal);
-  background: var(--glass-bg-subtle);
+  background: var(--color-bg-muted);
 }
 
 .dragDropArea.active {
   border-color: var(--color-primary);
-  background: color-mix(in srgb, var(--color-primary) 5%, transparent);
-  box-shadow: var(--shadow-glow-primary);
+  background: var(--color-primary-50);
 }
 
 .draggableItem {
   display: inline-block;
   padding: var(--spacing-md) var(--spacing-lg);
-  background: var(--glass-bg-strong);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid var(--glass-border);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
   border-radius: var(--radius-md);
   cursor: grab;
   margin: var(--spacing-sm);
   transition: all var(--transition-normal);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-xs);
 }
 
 .draggableItem:hover {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: var(--shadow-md), var(--shadow-glow-primary);
-  border-color: var(--color-primary-light);
+  box-shadow: var(--shadow-soft);
+  border-color: var(--color-primary-300);
 }
 
 .draggableItem.dragging {
@@ -402,7 +324,7 @@
   gap: var(--spacing-lg);
 }
 
-/* Enhanced Action Buttons with Sweep Animation */
+/* Action Buttons */
 .actionButton {
   flex: 1;
   padding: var(--spacing-xl) var(--spacing-2xl);
@@ -416,83 +338,59 @@
   align-items: center;
   justify-content: center;
   gap: var(--spacing-md);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Sweep animation on hover */
-.actionButton::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.2) 50%,
-    transparent 100%
-  );
-  transition: left 0.4s ease;
-}
-
-.actionButton:hover::after {
-  left: 100%;
 }
 
 .prevButton {
-  background: var(--glass-bg-strong);
+  background: var(--color-bg-surface);
   color: var(--color-text-primary);
-  border: 1px solid var(--glass-border);
+  border: 1px solid var(--color-border-default);
 }
 
 .prevButton:hover {
-  background: var(--color-neutral-200);
+  background: var(--color-bg-muted);
   transform: translateX(-4px);
 }
 
 .nextButton {
-  background: var(--gradient-primary);
+  background: var(--color-primary);
   color: var(--color-text-inverse);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-soft);
 }
 
 .nextButton:hover {
+  background: var(--color-primary-dark);
   transform: translateY(-2px) translateX(4px);
-  box-shadow: var(--shadow-lg), var(--shadow-glow-primary);
+  box-shadow: var(--shadow-medium);
 }
 
 .submitButton {
-  background: var(--gradient-success);
+  background: var(--color-success);
   color: var(--color-text-inverse);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-soft);
 }
 
 .submitButton:hover {
+  background: var(--color-success-light);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg), var(--shadow-glow-success);
+  box-shadow: var(--shadow-medium);
 }
 
-/* Enhanced Timer with Glass Effect */
+/* Timer */
 .timer {
   position: fixed;
   top: calc(var(--size-button-lg) + var(--spacing-lg));
   right: var(--spacing-4xl);
   padding: var(--spacing-lg) var(--spacing-xl);
-  background: var(--glass-bg-strong);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
+  background: var(--color-bg-surface);
   border-radius: var(--radius-full);
   font-weight: var(--weight-bold);
   color: var(--color-error);
-  box-shadow: var(--shadow-lg), var(--shadow-glow-error);
+  box-shadow: var(--shadow-medium);
   z-index: var(--z-sticky);
-  border: 1px solid var(--glass-border);
+  border: 1px solid var(--color-border-default);
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
-  animation: pulse-soft 2s ease-in-out infinite;
 }
 
 .timer::before {
@@ -500,7 +398,7 @@
   font-size: var(--text-lg);
 }
 
-/* Results Styles with Glassmorphism */
+/* Results Styles */
 .resultsBreakdown {
   margin-top: var(--spacing-4xl);
 }
@@ -508,17 +406,15 @@
 .resultItem {
   margin-bottom: var(--spacing-3xl);
   padding: var(--spacing-2xl);
-  background: var(--glass-bg);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid var(--glass-border);
+  background: var(--color-bg-muted);
+  border: 1px solid var(--color-border-muted);
   border-radius: var(--radius-lg);
   transition: all var(--transition-normal);
 }
 
 .resultItem:hover {
   transform: translateX(4px);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-soft);
 }
 
 .resultQuestion {
@@ -550,7 +446,6 @@
   background: color-mix(in srgb, var(--color-success) 10%, transparent);
   border-radius: var(--radius-md);
   border-left: 4px solid var(--color-success);
-  box-shadow: inset 0 0 20px color-mix(in srgb, var(--color-success) 5%, transparent);
 }
 
 .userAnswer {
@@ -559,11 +454,22 @@
   background: color-mix(in srgb, var(--color-error) 10%, transparent);
   border-radius: var(--radius-md);
   border-left: 4px solid var(--color-error);
-  box-shadow: inset 0 0 20px color-mix(in srgb, var(--color-error) 5%, transparent);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsive adjustments */
-@media (max-width: var(--breakpoint-lg)) {
+@media (max-width: 1024px) {
   .evaluationContainer {
     padding: var(--spacing-3xl) var(--spacing-2xl);
   }
@@ -573,7 +479,7 @@
   }
 }
 
-@media (max-width: var(--breakpoint-md)) {
+@media (max-width: 768px) {
   .evaluationActions {
     flex-direction: column;
   }
@@ -589,7 +495,7 @@
   }
 }
 
-@media (max-width: var(--breakpoint-xs)) {
+@media (max-width: 480px) {
   .evaluationContainer {
     padding: var(--spacing-2xl) var(--spacing-lg);
   }

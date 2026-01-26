@@ -1,0 +1,252 @@
+/* Enhanced A2 Home Styles */
+.a2HomeEnhanced {
+  width: 100%;
+  padding: 2rem;
+}
+
+/* A2 Hero Section */
+.a2HeroEnhanced {
+  background: 
+    radial-gradient(circle at top right, color-mix(in srgb, var(--color-accent) 10%, transparent) 0%, transparent 40%),
+    linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-radius: var(--radius-2xl);
+  padding: 4rem 2rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.a2HeroEnhanced::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--color-accent) 5%, transparent) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.15;
+  transform: rotate(30deg);
+  z-index: 0;
+}
+
+.a2HeroContentEnhanced {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.a2HeroEnhanced h1 {
+  font-size: var(--text-4xl);
+  margin-bottom: 1.5rem;
+  color: var(--color-text-primary);
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.a2HeroEnhanced p {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  margin-bottom: 2rem;
+  line-height: var(--leading-relaxed);
+  max-width: 600px;
+  margin-inline: auto;
+  margin-bottom: 2rem;
+}
+
+/* Levels Section */
+.a2LevelsSectionEnhanced {
+  margin: 4rem 0;
+}
+
+.a2LevelsGridEnhanced {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.a2LevelCardEnhanced {
+  background: var(--color-bg-surface);
+  border-radius: var(--radius-2xl);
+  padding: 2.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-slow);
+  border: 1px solid var(--color-border-default);
+  position: relative;
+  overflow: hidden;
+}
+
+.a2LevelCardEnhanced::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--gradient-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-slow);
+}
+
+.a2LevelCardEnhanced:hover::before {
+  transform: scaleX(1);
+}
+
+.a2LevelCardEnhanced:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
+}
+
+.a2LevelIconEnhanced {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+  color: var(--color-accent);
+  border-radius: var(--radius-full);
+  font-size: var(--text-2xl);
+  margin-bottom: 1.5rem;
+}
+
+.a2LevelCardEnhanced h3 {
+  font-size: var(--text-xl);
+  margin-bottom: 1rem;
+  color: var(--color-text-primary);
+}
+
+.a2LevelCardEnhanced p {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: var(--leading-relaxed);
+}
+
+.a2LevelStatsEnhanced {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border-muted);
+}
+
+.a2StatItemEnhanced {
+  text-align: center;
+}
+
+.a2StatNumberEnhanced {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-accent);
+  display: block;
+}
+
+.a2StatLabelEnhanced {
+  font-size: var(--text-sm);
+  color: var(--color-text-tertiary);
+}
+
+/* A2 Call to Action */
+.a2CtaEnhanced {
+  text-align: center;
+  margin: 4rem 0;
+  padding: 3rem;
+  background: var(--gradient-soft);
+  border-radius: var(--radius-2xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.a2CtaEnhanced::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px);
+  background-size: 60px 60px;
+  transform: rotate(15deg);
+  z-index: 0;
+}
+
+.a2CtaContentEnhanced {
+  position: relative;
+  z-index: 1;
+}
+
+.a2CtaEnhanced h2 {
+  font-size: var(--text-3xl);
+  margin-bottom: 1rem;
+  color: var(--color-text-primary);
+}
+
+.a2CtaEnhanced p {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: var(--breakpoint-lg)) {
+  .a2HeroEnhanced {
+    padding: 3rem 1.5rem;
+  }
+
+  .a2HeroEnhanced h1 {
+    font-size: var(--text-3xl);
+  }
+
+  .a2LevelsGridEnhanced {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: var(--breakpoint-md)) {
+  .a2HeroEnhanced {
+    padding: 2.5rem 1rem;
+  }
+
+  .a2HeroEnhanced h1 {
+    font-size: var(--text-2xl);
+  }
+
+  .a2CtaEnhanced {
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: var(--breakpoint-xs)) {
+  .a2HomeEnhanced {
+    padding: 1rem;
+  }
+
+  .a2HeroEnhanced {
+    padding: 2rem 0.75rem;
+  }
+
+  .a2HeroEnhanced h1 {
+    font-size: var(--text-xl);
+  }
+
+  .a2LevelCardEnhanced {
+    padding: 2rem;
+  }
+
+  .a2CtaEnhanced h2 {
+    font-size: var(--text-2xl);
+  }
+}

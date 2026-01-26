@@ -1,0 +1,315 @@
+/* =============================================
+   Enhanced Navigation & Progress Styles
+   Professional UI Upgrade with Glassmorphism
+   ============================================= */
+
+/* Enhanced Progress Tracking Styles */
+.progress-tracker {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur-subtle));
+  -webkit-backdrop-filter: blur(var(--glass-blur-subtle));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-lg);
+  flex-wrap: wrap;
+  box-shadow: var(--shadow-sm);
+}
+
+.progressTracker {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-primary);
+  transition: all var(--transition-normal);
+}
+
+.progressTracker.locked {
+  opacity: 0.6;
+}
+
+.progressTracker.unlocked {
+  background: var(--glass-bg);
+  color: var(--color-text-primary);
+}
+
+.progressTracker.completed {
+  background: color-mix(in srgb, var(--color-success) 15%, transparent);
+  color: var(--color-success);
+  box-shadow: var(--shadow-glow-success);
+}
+
+.progressTracker.current {
+  background: var(--gradient-primary);
+  color: var(--color-text-inverse);
+  box-shadow: var(--shadow-md), var(--shadow-glow-primary);
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+.progressTrackerIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-icon-sm);
+  height: var(--size-icon-sm);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+}
+
+.progressTracker.locked .progressTrackerIcon {
+  background: var(--color-neutral-400);
+  color: var(--color-text-inverse);
+}
+
+.progressTracker.unlocked .progressTrackerIcon {
+  background: var(--color-primary-light);
+  color: var(--color-text-inverse);
+}
+
+.progressTracker.completed .progressTrackerIcon {
+  background: var(--color-success);
+  color: var(--color-text-inverse);
+}
+
+.progressTracker.current .progressTrackerIcon {
+  background: var(--color-text-inverse);
+  color: var(--color-primary);
+}
+
+/* Breadcrumb Styles with Enhanced Design */
+.breadcrumb {
+  padding: var(--spacing-md) 0;
+  margin-bottom: var(--spacing-xl);
+}
+
+.breadcrumbList {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumbItem {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumbLink {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: all var(--transition-normal);
+  font-size: var(--text-sm);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-md);
+}
+
+.breadcrumbLink:hover {
+  color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+}
+
+.breadcrumbSeparator {
+  margin: 0 var(--spacing-xs);
+  color: var(--color-text-tertiary);
+  font-size: var(--text-xs);
+}
+
+.breadcrumbCurrent {
+  color: var(--color-text-primary);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-sm);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Enhanced Navigation Sidebar with Glassmorphism */
+.navSidebar {
+  position: sticky;
+  top: var(--size-button-lg);
+  height: calc(100vh - var(--size-button-lg));
+  width: 280px;
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(var(--glass-blur-strong));
+  -webkit-backdrop-filter: blur(var(--glass-blur-strong));
+  border-right: 1px solid var(--glass-border);
+  padding: var(--spacing-xl) 0;
+  overflow-y: auto;
+  transition: transform var(--transition-slow);
+  z-index: var(--z-sticky);
+  box-shadow: var(--shadow-lg);
+}
+
+.navSidebar.hidden {
+  transform: translateX(-100%);
+}
+
+.navSidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navSidebarItem {
+  padding: 0 var(--spacing-lg);
+}
+
+/* Title with Gradient Underline */
+.navSidebarTitle {
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-text-tertiary);
+  position: relative;
+  margin-bottom: var(--spacing-sm);
+}
+
+.navSidebarTitle::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: var(--spacing-lg);
+  right: var(--spacing-lg);
+  height: 2px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+}
+
+/* Enhanced Link Items */
+.navSidebarLink {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated Left Border Indicator */
+.navSidebarLink::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--gradient-primary);
+  transform: scaleY(0);
+  transition: transform 0.25s ease;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.navSidebarLink:hover {
+  background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+  color: var(--color-primary);
+  transform: translateX(4px);
+}
+
+.navSidebarLink:hover::before {
+  transform: scaleY(1);
+}
+
+/* Active State with Gradient Background Fade */
+.navSidebarLink.active {
+  background: linear-gradient(90deg,
+    color-mix(in srgb, var(--color-primary) 15%, transparent) 0%,
+    transparent 100%
+  );
+  color: var(--color-primary);
+  font-weight: var(--weight-semibold);
+}
+
+.navSidebarLink.active::before {
+  transform: scaleY(1);
+}
+
+.navSidebarGroup {
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Mobile Navigation Toggle with Rotation Animation */
+.navToggleBtn {
+  display: none;
+  position: fixed;
+  bottom: var(--spacing-2xl);
+  right: var(--spacing-2xl);
+  width: var(--size-button-lg);
+  height: var(--size-button-lg);
+  border-radius: var(--radius-full);
+  background: var(--gradient-primary);
+  color: var(--color-text-inverse);
+  border: none;
+  box-shadow: var(--shadow-lg), var(--shadow-glow-primary);
+  z-index: var(--z-modal);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-bounce);
+}
+
+.navToggleBtn:hover {
+  transform: scale(1.1) rotate(90deg);
+  box-shadow: var(--shadow-xl), var(--shadow-glow-primary);
+}
+
+.navToggleBtn:active {
+  transform: scale(0.95);
+}
+
+/* Responsive adjustments */
+@media (max-width: var(--breakpoint-lg)) {
+  .navSidebar {
+    position: fixed;
+    top: var(--size-button-lg);
+    left: 0;
+    height: calc(100vh - var(--size-button-lg));
+    width: 280px;
+    z-index: var(--z-modal-backdrop);
+    box-shadow: var(--shadow-2xl);
+  }
+
+  .navSidebar.hidden {
+    transform: translateX(-100%);
+  }
+
+  .navToggleBtn {
+    display: flex;
+  }
+}
+
+@media (max-width: var(--breakpoint-md)) {
+  .navSidebar {
+    width: 250px;
+  }
+
+  .breadcrumbList {
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+  }
+
+  .breadcrumbLink {
+    font-size: var(--text-xs);
+  }
+}

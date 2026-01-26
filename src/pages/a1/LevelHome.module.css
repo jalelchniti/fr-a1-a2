@@ -1,0 +1,529 @@
+/* =============================================
+   Enhanced Level Page Styles
+   Professional UI Upgrade with Glassmorphism
+   ============================================= */
+
+/* Enhanced Level Page Header */
+.levelHeaderEnhanced {
+  padding: 3rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative blur circles */
+.levelHeaderEnhanced::before,
+.levelHeaderEnhanced::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.levelHeaderEnhanced::before {
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+}
+
+.levelHeaderEnhanced::after {
+  bottom: -50px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+}
+
+.levelHeaderA1Enhanced {
+  background:
+    radial-gradient(circle at top right, color-mix(in srgb, var(--color-secondary) 10%, transparent) 0%, transparent 40%),
+    linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+  border-radius: var(--radius-2xl);
+  padding: 2.5rem;
+  margin-bottom: 3rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--glass-border);
+}
+
+.levelHeaderA2Enhanced {
+  background:
+    radial-gradient(circle at top right, color-mix(in srgb, var(--color-accent) 10%, transparent) 0%, transparent 40%),
+    linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-radius: var(--radius-2xl);
+  padding: 2.5rem;
+  margin-bottom: 3rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--glass-border);
+}
+
+.levelHeaderEnhanced .container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.levelHeaderContentEnhanced {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.levelBadgeLargeEnhanced {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-xl);
+  flex-shrink: 0;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-md);
+}
+
+.levelBadgeLargeEnhanced:hover {
+  transform: scale(1.05) rotate(-5deg);
+}
+
+.levelHeaderA1Enhanced .levelBadgeLargeEnhanced {
+  background: color-mix(in srgb, var(--color-secondary) 15%, white);
+  color: var(--color-secondary);
+  box-shadow: var(--shadow-md), var(--shadow-glow-secondary);
+}
+
+.levelHeaderA2Enhanced .levelBadgeLargeEnhanced {
+  background: color-mix(in srgb, var(--color-accent) 15%, white);
+  color: var(--color-accent);
+  box-shadow: var(--shadow-md), var(--shadow-glow-accent);
+}
+
+.levelLabelEnhanced {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-text-tertiary);
+}
+
+.levelInfoEnhanced h1 {
+  margin: 0.25rem 0 0.75rem;
+  font-size: var(--text-3xl);
+  color: var(--color-text-primary);
+}
+
+.levelInfoEnhanced p {
+  max-width: 500px;
+  margin: 0;
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+/* Enhanced Progress Card with Glassmorphism and Gradient Border */
+.levelProgressCardEnhanced {
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-lg);
+  min-width: 280px;
+  border: 1px solid var(--glass-border);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+/* Gradient top border */
+.levelProgressCardEnhanced::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-primary);
+}
+
+.levelProgressCardEnhanced:hover {
+  box-shadow: var(--shadow-xl), var(--shadow-glow-primary);
+  transform: translateY(-4px);
+}
+
+.progressHeaderEnhanced {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  font-size: var(--text-sm);
+}
+
+.progressHeaderEnhanced span:first-child {
+  color: var(--color-text-secondary);
+}
+
+.progressPercentEnhanced {
+  font-weight: var(--weight-semibold);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.progressStatsEnhanced {
+  margin-top: 0.75rem;
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+}
+
+/* Enhanced Progress Bar with Glowing Endpoint */
+.progressBarEnhanced {
+  width: 100%;
+  height: 8px;
+  background: var(--color-neutral-200);
+  border-radius: var(--radius-full);
+  overflow: visible;
+  position: relative;
+}
+
+.progressFillEnhanced {
+  height: 100%;
+  background: var(--gradient-secondary);
+  border-radius: var(--radius-full);
+  transition: width 0.5s ease;
+  position: relative;
+}
+
+/* Glowing endpoint indicator */
+.progressFillEnhanced::after {
+  content: "";
+  position: absolute;
+  right: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background: var(--color-secondary);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--color-secondary), 0 0 24px color-mix(in srgb, var(--color-secondary) 50%, transparent);
+  border: 2px solid white;
+}
+
+/* Enhanced Skills Overview */
+.skillsOverviewEnhanced {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.skillItemEnhanced {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(var(--glass-blur-subtle));
+  -webkit-backdrop-filter: blur(var(--glass-blur-subtle));
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--glass-border);
+  transition: all var(--transition-normal);
+}
+
+.skillItemEnhanced:hover {
+  transform: translateY(-3px) translateX(4px);
+  box-shadow: var(--shadow-md), var(--shadow-glow-primary);
+  border-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
+}
+
+.skillCheckEnhanced {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient-primary);
+  color: var(--color-text-inverse);
+  border-radius: var(--radius-md);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-sm);
+  flex-shrink: 0;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+}
+
+.skillItemEnhanced:hover .skillCheckEnhanced {
+  transform: scale(1.1) rotate(-5deg);
+  box-shadow: var(--shadow-md), var(--shadow-glow-primary);
+}
+
+.skillItemEnhanced span {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+/* Enhanced Themes Grid */
+.themesGridEnhanced {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.75rem;
+}
+
+/* Enhanced Theme Cards with Glass Effect */
+.themeCardEnhanced {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.75rem;
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-slow);
+  cursor: pointer;
+  border: 1px solid var(--glass-border);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated top border */
+.themeCardEnhanced::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--gradient-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-slow);
+}
+
+.themeCardEnhanced:hover::before {
+  transform: scaleX(1);
+}
+
+.themeCardEnhanced:hover:not(.themeLockedEnhanced) {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl), var(--shadow-glow-primary);
+  border-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
+}
+
+.themeLockedEnhanced {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.themeLockedEnhanced::before {
+  display: none;
+}
+
+/* Icon with Color Change on Hover */
+.themeIconEnhanced {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-muted);
+  border-radius: var(--radius-xl);
+  color: var(--color-primary);
+  flex-shrink: 0;
+  font-size: var(--text-lg);
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+}
+
+.themeCardEnhanced:hover:not(.themeLockedEnhanced) .themeIconEnhanced {
+  background: var(--gradient-primary);
+  color: white;
+  transform: scale(1.1) rotate(-5deg);
+  box-shadow: var(--shadow-md), var(--shadow-glow-primary);
+}
+
+.themeLockedEnhanced .themeIconEnhanced {
+  color: var(--color-text-tertiary);
+}
+
+.themeContentEnhanced {
+  flex: 1;
+}
+
+.themeContentEnhanced h3 {
+  font-size: var(--text-lg);
+  margin-bottom: 0.75rem;
+  color: var(--color-text-primary);
+  transition: color var(--transition-normal);
+}
+
+.themeCardEnhanced:hover:not(.themeLockedEnhanced) .themeContentEnhanced h3 {
+  color: var(--color-primary);
+}
+
+.themeContentEnhanced p {
+  font-size: var(--text-base);
+  margin-bottom: 1rem;
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+.themeMetaEnhanced {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.themeLessonsEnhanced {
+  font-size: var(--text-sm);
+  color: var(--color-text-tertiary);
+  font-weight: var(--weight-medium);
+}
+
+.themeStatusEnhanced {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  padding: 0.375rem 0.75rem;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  transition: all var(--transition-normal);
+}
+
+.statusAvailableEnhanced {
+  background: color-mix(in srgb, var(--color-success) 15%, transparent);
+  color: var(--color-success);
+  box-shadow: inset 0 0 10px color-mix(in srgb, var(--color-success) 10%, transparent);
+}
+
+.statusComingEnhanced {
+  background: color-mix(in srgb, var(--color-secondary) 15%, transparent);
+  color: var(--color-secondary);
+  box-shadow: inset 0 0 10px color-mix(in srgb, var(--color-secondary) 10%, transparent);
+}
+
+.statusLockedEnhanced {
+  background: color-mix(in srgb, var(--color-neutral-400) 15%, transparent);
+  color: var(--color-text-tertiary);
+}
+
+.themeActionEnhanced {
+  color: var(--color-text-tertiary);
+  transition: all var(--transition-normal);
+  flex-shrink: 0;
+}
+
+.themeCardEnhanced:hover:not(.themeLockedEnhanced) .themeActionEnhanced {
+  color: var(--color-primary);
+  transform: translateX(6px);
+}
+
+/* Enhanced CTA Box */
+.levelCtaEnhanced {
+  padding: 3rem 0 4rem;
+}
+
+.levelCtaEnhanced .ctaBoxEnhanced {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  padding: 2.5rem;
+  background: var(--gradient-soft);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  transition: all var(--transition-normal);
+}
+
+.levelCtaEnhanced .ctaBoxEnhanced:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-4px);
+}
+
+.levelCtaEnhanced .ctaBoxEnhanced::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px);
+  background-size: 60px 60px;
+  transform: rotate(15deg);
+  z-index: 0;
+  animation: float 10s ease-in-out infinite;
+}
+
+.levelCtaEnhanced .ctaContentEnhanced {
+  position: relative;
+  z-index: 1;
+}
+
+.levelCtaEnhanced .ctaContentEnhanced h3 {
+  margin-bottom: 0.75rem;
+  font-size: var(--text-2xl);
+  color: var(--color-text-primary);
+}
+
+.levelCtaEnhanced .ctaContentEnhanced p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+}
+
+.levelCtaEnhanced .btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: var(--breakpoint-lg)) {
+  .levelHeaderEnhanced .container {
+    grid-template-columns: 1fr;
+  }
+
+  .levelProgressCardEnhanced {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: var(--breakpoint-md)) {
+  .levelHeaderContentEnhanced {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .levelInfoEnhanced p {
+    max-width: 100%;
+  }
+
+  .themesGridEnhanced {
+    grid-template-columns: 1fr;
+  }
+
+  .levelCtaEnhanced .ctaBoxEnhanced {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .themeCardEnhanced {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .themeMetaEnhanced {
+    justify-content: center;
+  }
+}

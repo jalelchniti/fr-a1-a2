@@ -1,18 +1,18 @@
 import { Outlet } from 'react-router-dom';
 import Navigation from './Navigation';
-import './Layout.css';
+import styles from './Layout.module.css';
 
 export default function Layout() {
   return (
-    <div className="layout">
+    <div className={styles['layout']}>
       <Navigation />
-      <main className="main-content">
+      <main className={styles['mainContent']}>
         <Outlet />
       </main>
-      <footer className="footer">
-        <div className="footer-content">
+      <footer className={styles['footer']}>
+        <div className={styles['footerContent']}>
           <p>FLE A1-A2 Learning Platform</p>
-          <p className="footer-credits">
+          <p className={styles['footerCredits']}>
             Apprendre le francais avec plaisir
           </p>
         </div>
