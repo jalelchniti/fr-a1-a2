@@ -271,10 +271,6 @@ const ContentManagement: React.FC<ContentManagementProps> = ({
             <option value="A1.2">A1.2</option>
             <option value="A1.3">A1.3</option>
             <option value="A1.4">A1.4</option>
-            <option value="A2.1">A2.1</option>
-            <option value="A2.2">A2.2</option>
-            <option value="A2.3">A2.3</option>
-            <option value="A2.4">A2.4</option>
           </select>
         </div>
         

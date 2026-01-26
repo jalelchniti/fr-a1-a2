@@ -4,7 +4,8 @@ import {
   ClipboardCheck,
   Menu,
   X,
-  ChevronDown
+  ChevronDown,
+  BookOpen,
 } from 'lucide-react';
 import './Navigation.css';
 
@@ -25,6 +26,17 @@ const navItems: NavItem[] = [
       { path: '/reading', label: 'Compréhension écrite' },
       { path: '/listening', label: 'Compréhension orale' },
       { path: '/language', label: 'Grammaire & Vocabulaire' },
+    ]
+  },
+  {
+    path: '/a1',
+    label: 'A1',
+    icon: <BookOpen size={20} />,
+    children: [
+      { path: '/a1', label: 'Vue d\'ensemble' },
+      { path: '/a1/language', label: 'Langue' },
+      { path: '/a1/reading', label: 'Compréhension écrite' },
+      { path: '/a1/listening', label: 'Compréhension orale' },
     ]
   },
 ];
