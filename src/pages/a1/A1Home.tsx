@@ -196,7 +196,7 @@ export default function A1Home() {
                 <h2>Contenu d'apprentissage</h2>
                 <p>Explorez nos ressources pédagogiques organisées par thème et niveau</p>
               </div>
-              <ContentManagement />
+              <ContentManagement level="A1" />
             </div>
           </section>
 

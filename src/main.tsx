@@ -14,6 +14,9 @@ import A1Language from './pages/a1/language/Language';
 import A1Reading from './pages/a1/reading/Reading';
 import A1Listening from './pages/a1/listening/Listening';
 import A2Home from './pages/a2/A2Home';
+import A2Language from './pages/a2/language/Language';
+import A2Reading from './pages/a2/reading/Reading';
+import A2Listening from './pages/a2/listening/Listening';
 import ErrorBoundary from './components/ErrorBoundary';
 
 const router = createHashRouter([
@@ -45,6 +48,18 @@ const router = createHashRouter([
       {
         path: 'a2',
         element: <A2Home />,
+      },
+      {
+        path: 'a2/language',
+        element: <A2Language />,
+      },
+      {
+        path: 'a2/reading',
+        element: <A2Reading />,
+      },
+      {
+        path: 'a2/listening',
+        element: <A2Listening />,
       },
       {
         path: 'reading',

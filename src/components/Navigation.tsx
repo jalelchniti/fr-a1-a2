@@ -39,6 +39,17 @@ const navItems: NavItem[] = [
       { path: '/a1/listening', label: 'Compréhension orale' },
     ]
   },
+  {
+    path: '/a2',
+    label: 'A2',
+    icon: <BookOpen size={20} />,
+    children: [
+      { path: '/a2', label: 'Vue d\'ensemble' },
+      { path: '/a2/language', label: 'Langue' },
+      { path: '/a2/reading', label: 'Compréhension écrite' },
+      { path: '/a2/listening', label: 'Compréhension orale' },
+    ]
+  },
 ];
 
 export default function Navigation() {

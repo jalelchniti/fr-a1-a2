@@ -32,12 +32,14 @@ interface ContentManagementProps {
   title?: string;
   subtitle?: string;
   initialContent?: ContentItem[];
+  level?: 'A1' | 'A2';
 }
 
 const ContentManagement: React.FC<ContentManagementProps> = ({
   title = "Contenu d'apprentissage",
   subtitle = "Explorez nos ressources pédagogiques organisées par thème et niveau",
-  initialContent = []
+  initialContent = [],
+  level = 'A1'
 }) => {
   const content = useMemo<ContentItem[]>(() => [
     {
@@ -234,6 +236,21 @@ const ContentManagement: React.FC<ContentManagementProps> = ({
     }
   };
 
+  const levelOptions = {
+    A1: [
+      { value: 'A1.1', label: 'A1.1' },
+      { value: 'A1.2', label: 'A1.2' },
+      { value: 'A1.3', label: 'A1.3' },
+      { value: 'A1.4', label: 'A1.4' },
+    ],
+    A2: [
+      { value: 'A2.1', label: 'A2.1' },
+      { value: 'A2.2', label: 'A2.2' },
+      { value: 'A2.3', label: 'A2.3' },
+      { value: 'A2.4', label: 'A2.4' },
+    ]
+  };
+
   return (
     <div className="contentManagement">
       <div className="contentManagementHeader">
@@ -267,10 +284,9 @@ const ContentManagement: React.FC<ContentManagementProps> = ({
             className="filterSelect"
           >
             <option value="all">Tous les niveaux</option>
-            <option value="A1.1">A1.1</option>
-            <option value="A1.2">A1.2</option>
-            <option value="A1.3">A1.3</option>
-            <option value="A1.4">A1.4</option>
+            {levelOptions[level].map(option => (
+              <option key={option.value} value={option.value}>{option.label}</option>
+            ))}
           </select>
         </div>
         
