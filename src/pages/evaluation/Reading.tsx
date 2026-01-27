@@ -71,7 +71,7 @@ export default function Reading() {
       <section className="skill-header-section skill-header-primary">
         <div className="page-container">
           <Link to="/" className="back-link"><ArrowLeft size={20} />Retour à l'accueil</Link>
-          <div className="skill-header-content"><div className="skill-icon-large icon-primary"><BookOpenText size={32} /></div><div><span className="skill-label">Evaluation</span><h1>Compréhension Écrite</h1><p>Testez votre capacité à comprendre des textes écrits en français</p></div></div>
+          <div className="skill-header-content"><div className="skill-icon-large icon-primary"><BookOpenText size={32} /></div><div><span className="skill-label">Évaluation</span><h1>Compréhension Écrite</h1><p>Testez votre capacité à comprendre des textes écrits en français</p></div></div>
         </div>
       </section>
       <section className="skill-content section">

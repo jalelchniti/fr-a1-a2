@@ -71,7 +71,7 @@ export default function Language() {
       <section className="skill-header-section skill-header-accent">
         <div className="page-container">
           <Link to="/" className="back-link"><ArrowLeft size={20} />Retour à l'accueil</Link>
-          <div className="skill-header-content"><div className="skill-icon-large icon-accent"><Languages size={32} /></div><div><span className="skill-label">Evaluation</span><h1>Grammaire & Vocabulaire</h1><p>Testez votre maîtrise des structures linguistiques</p></div></div>
+          <div className="skill-header-content"><div className="skill-icon-large icon-accent"><Languages size={32} /></div><div><span className="skill-label">Évaluation</span><h1>Grammaire & Vocabulaire</h1><p>Testez votre maîtrise des structures linguistiques</p></div></div>
         </div>
       </section>
       <section className="skill-content section">

@@ -26,14 +26,24 @@ npx vitest run src/path/to/file.test.tsx  # Run single test file
 ### Routing (`src/main.tsx`)
 Uses `createHashRouter` for flexible deployment (works in any server folder). All routes are nested under a shared `Layout` component with `ErrorBoundary`:
 
+**Home & Evaluation Routes:**
 - `/#/` → `EvaluationHome` (home page with evaluation hub)
-- `/#/a1` → `A1Home` (level home page)
-- `/#/a1/language` → `LanguageChapter` (language chapter content)
-- `/#/a2` → `A2Home` (level home page)
 - `/#/reading` → `Reading` (reading comprehension evaluation)
 - `/#/listening` → `Listening` (listening comprehension evaluation)
 - `/#/language` → `Language` (grammar & vocabulary evaluation)
 - `/#/language/summary` → `LanguageSummary` (results summary)
+
+**A1 Level Routes:**
+- `/#/a1` → `A1Home` (A1 level home page)
+- `/#/a1/language` → `A1Language` (A1 grammar & vocabulary)
+- `/#/a1/reading` → `A1Reading` (A1 reading comprehension)
+- `/#/a1/listening` → `A1Listening` (A1 listening comprehension)
+
+**A2 Level Routes:**
+- `/#/a2` → `A2Home` (A2 level home page)
+- `/#/a2/language` → `A2Language` (A2 grammar & vocabulary)
+- `/#/a2/reading` → `A2Reading` (A2 reading comprehension)
+- `/#/a2/listening` → `A2Listening` (A2 listening comprehension)
 
 ### Component Structure
 
@@ -54,7 +64,7 @@ Uses `createHashRouter` for flexible deployment (works in any server folder). Al
 ### Data Structure (`src/pages/evaluation/`)
 
 Question data files define skill assessments:
-- `languageData.ts` - Grammar/vocabulary questions organized by sub-level (A1-1, A1-2, A1-3, A1-4)
+- `languageData.ts` - Grammar/vocabulary questions organized by sub-level (A1-1, A1-2, A1-3, A1-4), exports `questionSets`, `levels`, and `Question` interface
 - `readingData.ts` - Reading comprehension questions
 - `listeningData.ts` - Listening comprehension questions with audio transcripts
 
@@ -113,7 +123,7 @@ Uses `vite-plugin-pwa` with:
 
 ### Testing
 
-Vitest with React Testing Library:
+Vitest with React Testing Library (no test script in package.json - run directly):
 - Test files: `*.test.tsx` (none currently exist - framework ready for future tests)
 - Setup: `src/setupTests.ts` (imports `@testing-library/jest-dom`)
 - Config: `vitest.config.ts` with jsdom environment and globals enabled

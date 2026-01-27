@@ -72,7 +72,7 @@ export default function Listening() {
       <section className="skill-header-section skill-header-secondary">
         <div className="page-container">
           <Link to="/" className="back-link"><ArrowLeft size={20} />Retour à l'accueil</Link>
-          <div className="skill-header-content"><div className="skill-icon-large icon-secondary"><Headphones size={32} /></div><div><span className="skill-label">Evaluation</span><h1>Compréhension Orale</h1><p>Testez votre capacité à comprendre le français parlé</p></div></div>
+          <div className="skill-header-content"><div className="skill-icon-large icon-secondary"><Headphones size={32} /></div><div><span className="skill-label">Évaluation</span><h1>Compréhension Orale</h1><p>Testez votre capacité à comprendre le français parlé</p></div></div>
         </div>
       </section>
       <section className="skill-content section">

@@ -17,7 +17,7 @@ const skillCards = [
   {
     path: '/reading',
     title: 'Compréhension Écrite',
-    subtitle: 'Reading',
+    subtitle: 'Lecture',
     description: 'Évaluez votre capacité à comprendre des textes écrits en français, des messages simples aux articles plus complexes.',
     icon: BookOpenText,
     color: 'primary',
@@ -27,7 +27,7 @@ const skillCards = [
   {
     path: '/listening',
     title: 'Compréhension Orale',
-    subtitle: 'Listening',
+    subtitle: 'Écoute',
     description: 'Testez votre compréhension des dialogues et enregistrements audio en français courant.',
     icon: Headphones,
     color: 'secondary',
@@ -37,7 +37,7 @@ const skillCards = [
   {
     path: '/language',
     title: 'Grammaire & Vocabulaire',
-    subtitle: 'Language',
+    subtitle: 'Langue',
     description: 'Vérifiez votre maîtrise des structures grammaticales et de votre richesse lexicale.',
     icon: Languages,
     color: 'accent',

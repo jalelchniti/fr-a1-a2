@@ -13,12 +13,15 @@ import {
   ExternalLink
 } from 'lucide-react';
 import '../styles/content-management.css';
+import { contentData } from './contentData';
+import type { ContentType } from './contentTypes';
+import { contentTypes } from './contentTypes';
 
-interface ContentItem {
+export interface ContentItem {
   id: string;
   title: string;
   description: string;
-  type: 'lesson' | 'exercise' | 'video' | 'audio' | 'quiz' | 'grammar' | 'vocabulary';
+  type: ContentType;
   level: 'A1.1' | 'A1.2' | 'A1.3' | 'A1.4' | 'A2.1' | 'A2.2' | 'A2.3' | 'A2.4';
   difficulty: 'beginner' | 'intermediate' | 'advanced';
   duration: number; // in minutes
@@ -31,118 +34,18 @@ interface ContentItem {
 interface ContentManagementProps {
   title?: string;
   subtitle?: string;
-  initialContent?: ContentItem[];
-  level?: 'A1' | 'A2';
+  additionalContent?: ContentItem[];
 }
 
 const ContentManagement: React.FC<ContentManagementProps> = ({
   title = "Contenu d'apprentissage",
   subtitle = "Explorez nos ressources pédagogiques organisées par thème et niveau",
-  initialContent = [],
-  level = 'A1'
+  additionalContent = [],
 }) => {
   const content = useMemo<ContentItem[]>(() => [
-    {
-      id: '1',
-      title: 'Présentations personnelles',
-      description: 'Apprenez à vous présenter et à poser des questions simples sur votre identité',
-      type: 'lesson',
-      level: 'A1.1',
-      difficulty: 'beginner',
-      duration: 15,
-      tags: ['grammaire', 'conversation', 'bases'],
-      multimediaUrl: '/audio/presentations.mp3',
-      isInteractive: true,
-      rating: 4.5
-    },
-    {
-      id: '2',
-      title: 'Compréhension orale - Dialogue',
-      description: 'Écoutez un dialogue entre deux personnes et répondez aux questions',
-      type: 'audio',
-      level: 'A1.2',
-      difficulty: 'beginner',
-      duration: 10,
-      tags: ['écoute', 'dialogue', 'vocabulaire'],
-      multimediaUrl: '/audio/dialogue.mp3',
-      isInteractive: true,
-      rating: 4.2
-    },
-    {
-      id: '3',
-      title: 'Vidéo - La famille',
-      description: 'Découvrez le vocabulaire de la famille à travers une vidéo explicative',
-      type: 'video',
-      level: 'A1.1',
-      difficulty: 'beginner',
-      duration: 8,
-      tags: ['vocabulaire', 'famille', 'vidéo'],
-      multimediaUrl: '/videos/famille.mp4',
-      isInteractive: false,
-      rating: 4.7
-    },
-    {
-      id: '4',
-      title: 'Exercice de conjugaison',
-      description: 'Conjuguez les verbes au présent de l\'indicatif',
-      type: 'exercise',
-      level: 'A1.3',
-      difficulty: 'intermediate',
-      duration: 20,
-      tags: ['grammaire', 'verbes', 'exercice'],
-      isInteractive: true,
-      rating: 4.0
-    },
-    {
-      id: '5',
-      title: 'Quiz - Animaux domestiques',
-      description: 'Testez vos connaissances sur le vocabulaire des animaux domestiques',
-      type: 'quiz',
-      level: 'A1.2',
-      difficulty: 'beginner',
-      duration: 12,
-      tags: ['vocabulaire', 'animaux', 'quiz'],
-      isInteractive: true,
-      rating: 4.3
-    },
-    {
-      id: '6',
-      title: 'Grammaire - Articles définis',
-      description: 'Apprenez l\'utilisation des articles définis en français',
-      type: 'grammar',
-      level: 'A1.2',
-      difficulty: 'beginner',
-      duration: 18,
-      tags: ['grammaire', 'articles', 'leçon'],
-      isInteractive: true,
-      rating: 4.6
-    },
-    {
-      id: '7',
-      title: 'Vocabulaire - Couleurs',
-      description: 'Mémorisez les couleurs en français avec des exercices interactifs',
-      type: 'vocabulary',
-      level: 'A1.1',
-      difficulty: 'beginner',
-      duration: 10,
-      tags: ['vocabulaire', 'couleurs', 'exercice'],
-      isInteractive: true,
-      rating: 4.4
-    },
-    {
-      id: '8',
-      title: 'Conversation - Au restaurant',
-      description: 'Simulez une conversation dans un restaurant français',
-      type: 'lesson',
-      level: 'A1.4',
-      difficulty: 'intermediate',
-      duration: 25,
-      tags: ['conversation', 'restaurant', 'intermédiaire'],
-      isInteractive: true,
-      rating: 4.8
-    },
-    ...(initialContent || [])
-  ], [initialContent]);
+    ...contentData,
+    ...(additionalContent || [])
+  ], [additionalContent]);
 
   const [filters, setFilters] = useState({
     level: 'all',
@@ -159,6 +62,10 @@ const ContentManagement: React.FC<ContentManagementProps> = ({
     new Set(content.flatMap(item => item.tags))
   );
 
+  const levelOptions = useMemo(() => {
+    const levels = Array.from(new Set(content.map(item => item.level)));
+    return levels.sort().map(level => ({ value: level, label: level }));
+  }, [content]);
   // Apply filters and search using useMemo for derived state
   const filteredContent = useMemo(() => {
     let result = content;
@@ -236,19 +143,13 @@ const ContentManagement: React.FC<ContentManagementProps> = ({
     }
   };
 
-  const levelOptions = {
-    A1: [
-      { value: 'A1.1', label: 'A1.1' },
-      { value: 'A1.2', label: 'A1.2' },
-      { value: 'A1.3', label: 'A1.3' },
-      { value: 'A1.4', label: 'A1.4' },
-    ],
-    A2: [
-      { value: 'A2.1', label: 'A2.1' },
-      { value: 'A2.2', label: 'A2.2' },
-      { value: 'A2.3', label: 'A2.3' },
-      { value: 'A2.4', label: 'A2.4' },
-    ]
+  const getDifficultyLabel = (difficulty: ContentItem['difficulty']) => {
+    switch (difficulty) {
+      case 'beginner': return 'Débutant';
+      case 'intermediate': return 'Intermédiaire';
+      case 'advanced': return 'Avancé';
+      default: return difficulty;
+    }
   };
 
   return (
@@ -284,7 +185,7 @@ const ContentManagement: React.FC<ContentManagementProps> = ({
             className="filterSelect"
           >
             <option value="all">Tous les niveaux</option>
-            {levelOptions[level].map(option => (
+            {levelOptions.map(option => (
               <option key={option.value} value={option.value}>{option.label}</option>
             ))}
           </select>
@@ -299,13 +200,9 @@ const ContentManagement: React.FC<ContentManagementProps> = ({
             className="filterSelect"
           >
             <option value="all">Tous les types</option>
-            <option value="lesson">Leçon</option>
-            <option value="exercise">Exercice</option>
-            <option value="video">Vidéo</option>
-            <option value="audio">Audio</option>
-            <option value="quiz">Quiz</option>
-            <option value="grammar">Grammaire</option>
-            <option value="vocabulary">Vocabulaire</option>
+            {contentTypes.map(type => (
+              <option key={type} value={type}>{type.charAt(0).toUpperCase() + type.slice(1)}</option>
+            ))}
           </select>
         </div>
         
@@ -350,7 +247,7 @@ const ContentManagement: React.FC<ContentManagementProps> = ({
               
               <div className="contentCardBody">
                 <div className={`contentTag ${getDifficultyClass(item.difficulty)}`}>
-                  {item.difficulty}
+                  {getDifficultyLabel(item.difficulty)}
                 </div>
                 <p className="contentCardDescription">{item.description}</p>
                 
