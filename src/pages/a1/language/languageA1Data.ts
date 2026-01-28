@@ -398,7 +398,7 @@ export const activities: Activity[] = [
 export const quizQuestions: QuizQuestion[] = [
   {
     id: 1,
-    question: 'Comment dit-on "Hello" en français (formel) ?',
+    question: 'Vous rencontrez le directeur de votre école pour la première fois. Que dites-vous ?',
     options: ['Salut', 'Bonjour', 'Coucou', 'Hé'],
     correctAnswer: 1,
     explanation: '"Bonjour" est la salutation formelle standard en français.'
@@ -419,7 +419,7 @@ export const quizQuestions: QuizQuestion[] = [
   },
   {
     id: 4,
-    question: 'Comment dit-on "21" en français ?',
+    question: 'Comment écrit-on le nombre 21 en lettres ?',
     options: ['Vingt-un', 'Vingt et un', 'Vingt-et-un', 'Vingte un'],
     correctAnswer: 1,
     explanation: 'On dit "vingt et un" avec "et" (sans trait d\'union).'
@@ -440,7 +440,7 @@ export const quizQuestions: QuizQuestion[] = [
   },
   {
     id: 7,
-    question: 'Comment dit-on "70" en français ?',
+    question: 'Comment écrit-on le nombre 70 en lettres ?',
     options: ['Septante', 'Soixante-dix', 'Soixante et dix', 'Sept-dix'],
     correctAnswer: 1,
     explanation: 'En France, 70 se dit "soixante-dix" (60+10).'
@@ -461,7 +461,7 @@ export const quizQuestions: QuizQuestion[] = [
   },
   {
     id: 10,
-    question: 'Comment dit-on "Nice to meet you" ?',
+    question: 'Vous rencontrez un nouvel ami. Après les présentations, vous dites :',
     options: ['Bonjour', 'Au revoir', 'Enchanté', 'Merci'],
     correctAnswer: 2,
     explanation: '"Enchanté" ou "Enchantée" signifie "Nice to meet you".'

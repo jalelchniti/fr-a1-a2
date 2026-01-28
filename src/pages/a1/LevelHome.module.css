@@ -266,8 +266,9 @@
 
 /* Enhanced Themes Grid */
 .themesGridEnhanced {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.75rem;
 }
 
