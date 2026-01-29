@@ -1,8 +1,844 @@
-.container {
-  padding: 2rem;
+/* A1-1 Reading Page Styles */
+
+/* Page Container */
+.pageContainer {
+  min-height: 100vh;
+  background: var(--color-bg-secondary, #f8fafc);
 }
 
-.title {
-  font-size: 2rem;
+/* Header Section */
+.header {
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  color: white;
+  padding: 2rem 0;
+}
+
+.headerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 0.875rem;
   margin-bottom: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.backLink:hover {
+  color: white;
+}
+
+.headerInfo {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.headerIcon {
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.levelBadge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.headerInfo h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem 0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+.headerInfo p {
+  margin: 0;
+  opacity: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+/* Content Section */
+.content {
+  padding: 2rem 0;
+}
+
+.contentContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Hub View */
+.hubContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.section {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.sectionIcon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.sectionHeader h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+  color: var(--color-text-primary, #1e293b);
+}
+
+.sectionHeader p {
+  margin: 0;
+  color: var(--color-text-secondary, #64748b);
+  font-size: 0.875rem;
+}
+
+/* Card Grid */
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--color-bg-secondary, #f8fafc);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+.card:hover {
+  background: white;
+  border-color: var(--color-primary, #2563eb);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+
+.cardIcon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.cardContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.cardContent h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+  color: var(--color-text-primary, #1e293b);
+}
+
+.cardContent p {
+  margin: 0 0 0.5rem 0;
+  color: var(--color-text-secondary, #64748b);
+  font-size: 0.813rem;
+  line-height: 1.4;
+}
+
+.cardMeta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.75rem;
+  color: var(--color-text-tertiary, #94a3b8);
+}
+
+.cardMeta span {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.tag {
+  background: var(--color-primary, #2563eb);
+  color: white;
+  padding: 0.125rem 0.5rem;
+  border-radius: 4px;
+  text-transform: capitalize;
+}
+
+.cardArrow {
+  color: var(--color-text-tertiary, #94a3b8);
+  flex-shrink: 0;
+}
+
+/* Quiz Card */
+.quizCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid var(--color-primary, #2563eb);
+}
+
+.quizCard:hover {
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.quizInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.quizInfo svg {
+  color: var(--color-primary, #2563eb);
+}
+
+.quizInfo h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+  color: var(--color-text-primary, #1e293b);
+}
+
+.quizInfo p {
+  margin: 0;
+  color: var(--color-text-secondary, #64748b);
+  font-size: 0.875rem;
+}
+
+/* Presentation View */
+.presentationContainer {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.presentationHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+}
+
+.presentationHeader h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  color: var(--color-text-primary, #1e293b);
+}
+
+.presentationHeader p {
+  margin: 0;
+  color: var(--color-text-secondary, #64748b);
+}
+
+.presentationSection {
+  margin-bottom: 2rem;
+}
+
+.presentationSection h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  color: var(--color-text-primary, #1e293b);
+}
+
+.presentationSection h2 svg {
+  color: var(--color-primary, #2563eb);
+}
+
+/* Objectives List */
+.objectivesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.objectivesList li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: var(--color-bg-secondary, #f8fafc);
+  border-radius: 8px;
+  color: var(--color-text-primary, #1e293b);
+}
+
+.objectivesList li svg {
+  color: #22c55e;
+  flex-shrink: 0;
+}
+
+/* Reading Text Card */
+.readingTextCard {
+  background: var(--color-bg-secondary, #f8fafc);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.readingTextCard:last-child {
+  margin-bottom: 0;
+}
+
+.readingTextCard h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  color: var(--color-primary, #2563eb);
+}
+
+/* Text Box (for reading passages) */
+.textBox {
+  background: white;
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid var(--color-primary, #2563eb);
+}
+
+.textBox p {
+  margin: 0;
+  line-height: 1.8;
+  color: var(--color-text-primary, #1e293b);
+  font-size: 1rem;
+}
+
+/* Vocabulary Section (within reading text) */
+.vocabularySection {
+  margin-bottom: 1.5rem;
+}
+
+.vocabularySection h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem 0;
+  color: var(--color-text-primary, #1e293b);
+}
+
+.vocabularySection h4 svg {
+  color: var(--color-primary, #2563eb);
+}
+
+.vocabularyGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.vocabularyCard {
+  background: white;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.vocabFrench {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-primary, #2563eb);
+}
+
+.vocabEnglish {
+  font-size: 0.813rem;
+  color: var(--color-text-secondary, #64748b);
+}
+
+.vocabExample {
+  font-size: 0.75rem;
+  color: var(--color-text-tertiary, #94a3b8);
+  font-style: italic;
+  margin-top: 0.25rem;
+}
+
+/* Tips Section (within reading text) */
+.tipsSection {
+  background: linear-gradient(135deg, #fef9c3 0%, #fef3c7 100%);
+  border-radius: 8px;
+  padding: 1rem;
+  border-left: 4px solid #eab308;
+}
+
+.tipsSection h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem 0;
+  color: #713f12;
+}
+
+.tipsSection h4 svg {
+  color: #ca8a04;
+}
+
+.tipsSection ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tipsSection li {
+  font-size: 0.813rem;
+  color: #713f12;
+  line-height: 1.5;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.tipsSection li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #ca8a04;
+}
+
+/* Reading Strategies */
+.strategiesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.strategyCard {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--color-bg-secondary, #f8fafc);
+  border-radius: 8px;
+}
+
+.strategyNumber {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.strategyCard span {
+  color: var(--color-text-primary, #1e293b);
+  line-height: 1.5;
+}
+
+/* Presentation Footer */
+.presentationFooter {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border, #e2e8f0);
+}
+
+/* Activity View */
+.activityContainer {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.activityHeader {
+  margin-bottom: 2rem;
+}
+
+.activityHeader h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  color: var(--color-text-primary, #1e293b);
+}
+
+.activityHeader p {
+  margin: 0 0 1rem 0;
+  color: var(--color-text-secondary, #64748b);
+}
+
+.activityProgress {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.activityProgress span {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary, #64748b);
+}
+
+.progressBar {
+  height: 8px;
+  background: var(--color-bg-secondary, #f1f5f9);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.activityContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Reading Text Box for Activities */
+.readingTextBox {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid var(--color-primary, #2563eb);
+}
+
+.textBoxHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: var(--color-primary, #2563eb);
+}
+
+.readingTextBox p {
+  margin: 0;
+  line-height: 1.8;
+  color: var(--color-text-primary, #1e293b);
+}
+
+/* Question Card */
+.questionCard {
+  background: var(--color-bg-secondary, #f8fafc);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.instruction {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--color-text-tertiary, #94a3b8);
+  margin-bottom: 0.75rem;
+}
+
+.questionText {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--color-text-primary, #1e293b);
+  margin: 0 0 1.5rem 0;
+}
+
+.fillBlankInput {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.125rem;
+  border: 2px solid var(--color-border, #e2e8f0);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.fillBlankInput:focus {
+  border-color: var(--color-primary, #2563eb);
+}
+
+.optionsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.optionButton {
+  padding: 1rem;
+  font-size: 1rem;
+  background: white;
+  border: 2px solid var(--color-border, #e2e8f0);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+}
+
+.optionButton:hover {
+  border-color: var(--color-primary, #2563eb);
+  background: #f0f9ff;
+}
+
+.optionButton.selected {
+  border-color: var(--color-primary, #2563eb);
+  background: #eff6ff;
+  color: var(--color-primary, #2563eb);
+  font-weight: 500;
+}
+
+.activityNavigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Activity Results */
+.activityResults {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.scoreCard {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%);
+  border-radius: 16px;
+}
+
+.scoreCard h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  color: var(--color-text-primary, #1e293b);
+}
+
+.scoreCircle {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.scoreNumber {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--color-primary, #2563eb);
+}
+
+.scoreTotal {
+  font-size: 1.5rem;
+  color: var(--color-text-secondary, #64748b);
+}
+
+.scoreCard p {
+  margin: 0;
+  font-size: 1.125rem;
+  color: var(--color-text-secondary, #64748b);
+}
+
+.answersReview {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.answerItem {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.answerItem.correct {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+}
+
+.answerItem.incorrect {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+}
+
+.answerIcon {
+  flex-shrink: 0;
+}
+
+.answerItem.correct .answerIcon {
+  color: #22c55e;
+}
+
+.answerItem.incorrect .answerIcon {
+  color: #ef4444;
+}
+
+.answerContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.answerQuestion {
+  font-weight: 500;
+  color: var(--color-text-primary, #1e293b);
+}
+
+.answerGiven {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary, #64748b);
+}
+
+.answerCorrect {
+  font-size: 0.875rem;
+  color: #22c55e;
+  font-weight: 500;
+}
+
+.answerExplanation {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.813rem;
+  color: var(--color-text-tertiary, #94a3b8);
+  margin-top: 0.25rem;
+}
+
+.answerExplanation svg {
+  color: #eab308;
+  flex-shrink: 0;
+}
+
+.resultsActions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Quiz View */
+.quizContainer {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    padding: 1.5rem 0;
+  }
+
+  .headerInfo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .headerInfo h1 {
+    font-size: 1.5rem;
+  }
+
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .vocabularyGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .optionsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .quizCard {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .quizInfo {
+    flex-direction: column;
+  }
+
+  .presentationFooter,
+  .activityNavigation,
+  .resultsActions {
+    flex-direction: column;
+  }
+
+  .presentationFooter button,
+  .activityNavigation button,
+  .resultsActions button {
+    width: 100%;
+  }
+
+  .readingTextBox {
+    padding: 1rem;
+  }
+
+  .textBox {
+    padding: 1rem;
+  }
 }
