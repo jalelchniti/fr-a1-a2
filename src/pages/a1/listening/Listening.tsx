@@ -270,10 +270,6 @@ export default function Listening() {
                   {listeningText.vocabulary.map((item, i) => (
                     <div key={i} className={styles.vocabularyCard}>
                       <span className={styles.vocabFrench}>{item.french}</span>
-                      <span className={styles.vocabEnglish}>{item.english}</span>
-                      {item.phonetic && (
-                        <span className={styles.vocabPhonetic}>[{item.phonetic}]</span>
-                      )}
                     </div>
                   ))}
                 </div>

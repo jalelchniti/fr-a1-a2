@@ -4,7 +4,6 @@
 // --- Interfaces (reused from languageA2Data.ts for consistency) ---
 export interface VocabularyItem {
   french: string;
-  english: string;
   example?: string;
   audio?: string;
 }
@@ -12,7 +11,7 @@ export interface VocabularyItem {
 export interface GrammarRule {
   title: string;
   explanation: string;
-  examples: { french: string; english: string }[];
+  examples: { french: string }[];
 }
 
 export interface ReadingText {
@@ -41,6 +40,7 @@ export interface ActivityQuestion {
   correctAnswer: string | number | boolean;
   hint?: string;
   text?: string; // Specific for reading activities
+  explanation?: string;
 }
 
 export interface Activity {
@@ -78,11 +78,11 @@ export const presentations: Presentation[] = [
             title: 'Ma journée typique',
             text: 'Bonjour, je m\'appelle Sophie et je suis étudiante à Paris. Tous les jours, je me lève à 7h, je prends mon petit-déjeuner et je pars à l\'université. J\'étudie l\'histoire. Le soir, je rentre chez moi, je fais mes devoirs et je regarde un film. Le week-end, j\'aime aller au cinéma avec mes amis ou visiter des musées.',
             vocabulary: [
-                { french: 'étudiante', english: 'student (female)' },
-                { french: 'je me lève', english: 'I get up' },
-                { french: 'je prends mon petit-déjeuner', english: 'I have my breakfast' },
-                { french: 'je pars', english: 'I leave' },
-                { french: 'je rentre', english: 'I come back home' }
+                { french: 'étudiante' },
+                { french: 'je me lève' },
+                { french: 'je prends mon petit-déjeuner' },
+                { french: 'je pars' },
+                { french: 'je rentre' }
             ],
             comprehensionTips: [
                 'Identifiez les verbes d\'action pour suivre la routine.',
