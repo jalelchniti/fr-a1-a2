@@ -39,17 +39,6 @@ const navItems: NavItem[] = [
       { path: '/a1/listening', label: 'Compréhension orale' },
     ]
   },
-  {
-    path: '/a2',
-    label: 'A2',
-    icon: <BookOpen size={20} />,
-    children: [
-      { path: '/a2', label: 'Vue d\'ensemble' },
-      { path: '/a2/language', label: 'Langue' },
-      { path: '/a2/reading', label: 'Compréhension écrite' },
-      { path: '/a2/listening', label: 'Compréhension orale' },
-    ]
-  },
 ];
 
 export default function Navigation() {
@@ -91,7 +80,7 @@ export default function Navigation() {
           </span>
           <span className="logo-text">
             <span className="logo-title">FLE</span>
-            <span className="logo-subtitle">A1 - A2</span>
+            <span className="logo-subtitle">A1</span>
           </span>
         </Link>
 
