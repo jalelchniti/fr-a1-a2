@@ -1,0 +1,41 @@
+import { useParams, Navigate } from 'react-router-dom';
+import styles from './A2PartPage.module.css';
+import { getA2PartContent } from './a2DataService';
+
+export default function A2PartPage() {
+  const { partId } = useParams<{ partId: string }>();
+
+  if (!partId) {
+    return <Navigate to="/a2" replace />;
+  }
+
+  const content = getA2PartContent(partId);
+
+  if (!content) {
+    return <Navigate to="/a2" replace />;
+  }
+
+  return (
+    <section className={styles.partPage}>
+      <h1>{content.title}</h1>
+
+      {content.sections.map((section) => (
+        <div key={section.id} className={styles.card}>
+          <h3>{section.title}</h3>
+
+          {section.text && (
+            <p className={styles.text}>{section.text}</p>
+          )}
+
+          {section.activities && (
+            <ul className={styles.activity}>
+              {section.activities.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+      ))}
+    </section>
+  );
+}

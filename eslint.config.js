@@ -18,6 +18,19 @@ export default defineConfig([
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
+      parser: tseslint.parser,
+      parserOptions: {
+        project: ['tsconfig.json', 'tsconfig.app.json'],
+      },
+    },
+    rules: {
+      "@typescript-eslint/consistent-type-imports": [
+        "error",
+        {
+          "prefer": "type-imports",
+          "fixStyle": "inline-type-imports"
+        }
+      ]
     },
   },
 ])
