@@ -1,28 +1,42 @@
-import { useRouteError, isRouteErrorResponse } from 'react-router-dom';
+import type { ReactNode } from 'react';
+import { Component } from 'react';
 
-export default function ErrorBoundary() {
-  const error = useRouteError();
-  console.error(error);
+interface ErrorBoundaryProps {
+    children: ReactNode;
+}
 
-  let errorMessage: string;
+interface ErrorBoundaryState {
+    hasError: boolean;
+    message: string;
+}
 
-  if (isRouteErrorResponse(error)) {
-    errorMessage = error.statusText;
-  } else if (error instanceof Error) {
-    errorMessage = error.message;
-  } else if (typeof error === 'object' && error !== null && 'message' in error && typeof error.message === 'string') {
-    errorMessage = error.message;
-  } else {
-    errorMessage = 'Unknown error';
-  }
+export default class ErrorBoundary extends Component<
+    ErrorBoundaryProps,
+    ErrorBoundaryState
+> {
+    state: ErrorBoundaryState = { hasError: false, message: '' };
 
-  return (
-    <div className="error-boundary">
-      <h1>Oops! Something went wrong.</h1>
-      <p>We are sorry, but an unexpected error has occurred.</p>
-      <p>
-        <i>{errorMessage}</i>
-      </p>
-    </div>
-  );
+    static getDerivedStateFromError(error: Error): ErrorBoundaryState {
+        return { hasError: true, message: error.message };
+    }
+
+    componentDidCatch(error: Error) {
+        console.error(error);
+    }
+
+    render() {
+        if (this.state.hasError) {
+            return (
+                <div className="error-boundary">
+                    <h1>Oops! Something went wrong.</h1>
+                    <p>We are sorry, but an unexpected error has occurred.</p>
+                    <p>
+                        <i>{this.state.message}</i>
+                    </p>
+                </div>
+            );
+        }
+
+        return this.props.children;
+    }
 }

@@ -1,4 +1,4 @@
-import { Outlet, useLocation } from 'react-router-dom';
+﻿import { Outlet, useLocation } from 'react-router-dom';
 import Navigation from './Navigation';
 import SidebarNav from './SidebarNav';
 import Breadcrumb from './Breadcrumb';
@@ -7,7 +7,7 @@ import {
     A1_NAVIGATION,
     A2_NAVIGATION,
     EVALUATION_NAVIGATION,
-} from '../navigation/navigation.config';
+} from '../navigation/navigation.config.tsx';
 
 import styles from './Layout.module.css';
 
@@ -51,7 +51,7 @@ export default function Layout() {
                 <div className={styles.footerContent}>
                     <p>FLE A1-A2 Learning Platform</p>
                     <p className={styles.footerCredits}>
-                        Apprendre le fran�ais avec plaisir
+                        Apprendre le français avec plaisir
                     </p>
                 </div>
             </footer>

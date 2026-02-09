@@ -7,10 +7,10 @@ export default function A2Home() {
   const location = useLocation();
   const sidebarItems = [
     { title: 'Vue d\'ensemble', path: '/a2', active: location.pathname === '/a2' },
-    { title: 'A2-1', path: '/a2/part-1', active: location.pathname === '/a2/part-1' },
-    { title: 'A2-2', path: '/a2/part-2', active: location.pathname === '/a2/part-2' },
-    { title: 'A2-3', path: '/a2/part-3', active: location.pathname === '/a2/part-3' },
-    { title: 'A2-4', path: '/a2/part-4', active: location.pathname === '/a2/part-4' },
+    { title: 'A2-1', path: '/a2/part/1', active: location.pathname === '/a2/part/1' },
+    { title: 'A2-2', path: '/a2/part/2', active: location.pathname === '/a2/part/2' },
+    { title: 'A2-3', path: '/a2/part/3', active: location.pathname === '/a2/part/3' },
+    { title: 'A2-4', path: '/a2/part/4', active: location.pathname === '/a2/part/4' },
   ];
 
   return (

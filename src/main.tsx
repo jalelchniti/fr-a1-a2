@@ -13,9 +13,6 @@ import ErrorBoundary from './components/ErrorBoundary';
 import A1Home from './pages/a1/A1Home';
 import A1OverviewPage from './pages/a1/A1OverviewPage';
 import A1PartPage from './pages/a1/A1PartPage';
-import A1Language from './pages/a1/language/Language';
-import A1Reading from './pages/a1/reading/Reading';
-import A1Listening from './pages/a1/listening/Listening';
 
 /* =======================
    A2 Pages
@@ -55,9 +52,6 @@ const router = createHashRouter([
                 children: [
                     { index: true, element: <A1OverviewPage /> },
                     { path: 'part/:partId', element: <A1PartPage /> },
-                    { path: 'language', element: <A1Language /> },
-                    { path: 'reading', element: <A1Reading /> },
-                    { path: 'listening', element: <A1Listening /> },
                 ],
             },
 

@@ -34,10 +34,10 @@ const navItems: NavItem[] = [
     icon: <BookOpen size={20} />,
     children: [
       { path: '/a1', label: 'Vue d\'ensemble' },
-      { path: '/a1/part-1', label: 'A1-1' },
-      { path: '/a1/part-2', label: 'A1-2' },
-      { path: '/a1/part-3', label: 'A1-3' },
-      { path: '/a1/part-4', label: 'A1-4' },
+      { path: '/a1/part/1', label: 'A1-1' },
+      { path: '/a1/part/2', label: 'A1-2' },
+      { path: '/a1/part/3', label: 'A1-3' },
+      { path: '/a1/part/4', label: 'A1-4' },
     ]
   },
   {
@@ -46,10 +46,10 @@ const navItems: NavItem[] = [
     icon: <BookOpen size={20} />,
     children: [
       { path: '/a2', label: 'Vue d\'ensemble' },
-      { path: '/a2/part-1', label: 'A2-1' },
-      { path: '/a2/part-2', label: 'A2-2' },
-      { path: '/a2/part-3', label: 'A2-3' },
-      { path: '/a2/part-4', label: 'A2-4' },
+      { path: '/a2/part/1', label: 'A2-1' },
+      { path: '/a2/part/2', label: 'A2-2' },
+      { path: '/a2/part/3', label: 'A2-3' },
+      { path: '/a2/part/4', label: 'A2-4' },
     ]
   },
 ];

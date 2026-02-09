@@ -29,9 +29,11 @@ export default function A12PartPage() { // Renamed component and removed usePara
       {languageLessonData.presentations.length === 0 && languageLessonData.activities.length === 0 && (
         <div className={styles.card}>
           <h2>Niveau A1 - Partie {partId}</h2>
-          <p>Le contenu détaillé pour cette partie sera bientôt disponible. En attendant, explorez les autres sections !</p>
+          <p>Le contenu detaille pour cette partie sera bientot disponible. En attendant, explorez les autres sections !</p>
         </div>
       )}
     </div>
   );
 }
+
+

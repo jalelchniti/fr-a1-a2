@@ -15,39 +15,39 @@ export interface A1PartContent {
 
 const A1_CONTENT: Record<string, A1PartContent> = {
     '1': {
-        title: 'Partie 1 – Se présenter',
+        title: 'Partie 1 - Se presenter',
         sections: [
             {
                 id: 'dialogue-1',
                 title: 'Dialogue',
                 dialogue: [
-                    { speaker: 'A', text: 'Bonjour, comment tu t’appelles ?' },
-                    { speaker: 'B', text: 'Je m’appelle Lina.' },
+                    { speaker: 'A', text: 'Bonjour, comment tu t\'appelles ?' },
+                    { speaker: 'B', text: 'Je m\'appelle Lina.' },
                 ],
             },
             {
                 id: 'activity-1',
-                title: 'Activité',
+                title: 'Activite',
                 activities: [
-                    'Présente-toi à l’oral.',
-                    'Complète avec ton prénom.',
+                    'Presente-toi a l\'oral.',
+                    'Complete avec ton prenom.',
                 ],
             },
         ],
     },
 
     '2': {
-        title: 'Partie 2 – La famille',
+        title: 'Partie 2 - La famille',
         sections: [],
     },
 
     '3': {
-        title: 'Partie 3 – Les activités',
+        title: 'Partie 3 - Les activites',
         sections: [],
     },
 
     '4': {
-        title: 'Partie 4 – La routine',
+        title: 'Partie 4 - La routine',
         sections: [],
     },
 };
@@ -55,3 +55,5 @@ const A1_CONTENT: Record<string, A1PartContent> = {
 export function getA1PartContent(partId: string) {
     return A1_CONTENT[partId];
 }
+
+

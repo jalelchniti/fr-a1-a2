@@ -51,10 +51,10 @@ const breadcrumbItems = [
 ];
 
 const progressSteps = [
-  { id: '1', title: 'A1.1', completed: true, locked: false, path: '/a1/1' },
-  { id: '2', title: 'A1.2', completed: true, locked: false, path: '/a1/2' },
-  { id: '3', title: 'A1.3', completed: false, locked: false, path: '/a1/3' },
-  { id: '4', title: 'A1.4', completed: false, locked: true, path: '/a1/4' },
+  { id: '1', title: 'A1.1', completed: true, locked: false, path: '/a1/part/1' },
+  { id: '2', title: 'A1.2', completed: true, locked: false, path: '/a1/part/2' },
+  { id: '3', title: 'A1.3', completed: false, locked: false, path: '/a1/part/3' },
+  { id: '4', title: 'A1.4', completed: false, locked: true, path: '/a1/part/4' },
 ];
 
 const sidebarItems = [
